@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  YJMainNacController.h
 //  Gifts
 //
 //  Created by yjadair on 15/11/8.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface YJMainNacController : UINavigationController
 
 @end
-

@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */; settings = {ASSET_TAGS = (); }; };
+		EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CD1BEF9EED000984DF /* YJMeNavController.m */; settings = {ASSET_TAGS = (); }; };
+		EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */; settings = {ASSET_TAGS = (); }; };
+		EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		EC2A54D61BEFBD4B000984DF /* YJQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */; settings = {ASSET_TAGS = (); }; };
 		EC75EB731BEF216E00A32151 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB721BEF216E00A32151 /* main.m */; };
-		EC75EB761BEF216E00A32151 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB751BEF216E00A32151 /* AppDelegate.m */; };
-		EC75EB791BEF216E00A32151 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB781BEF216E00A32151 /* ViewController.m */; };
-		EC75EB7C1BEF216E00A32151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC75EB7A1BEF216E00A32151 /* Main.storyboard */; };
 		EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75EB7D1BEF216E00A32151 /* Assets.xcassets */; };
-		EC75EB811BEF216E00A32151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC75EB7F1BEF216E00A32151 /* LaunchScreen.storyboard */; };
 		EC75EB8C1BEF216E00A32151 /* GiftsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB8B1BEF216E00A32151 /* GiftsTests.m */; };
 		EC75EB971BEF216E00A32151 /* GiftsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB961BEF216E00A32151 /* GiftsUITests.m */; };
+		EC75EBC41BEF651E00A32151 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBBD1BEF651E00A32151 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC11BEF651E00A32151 /* YJMainController.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC71BEF653D00A32151 /* YJMeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBCB1BEF654800A32151 /* YJHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCA1BEF654800A32151 /* YJHotViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBD11BEF656500A32151 /* YJClssifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD01BEF656500A32151 /* YJClssifyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD61BEF693300A32151 /* UIView+Frame.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +45,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC2A54C91BEF9C19000984DF /* UIBarButtonItem+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+YJExpansion.h"; sourceTree = "<group>"; };
+		EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+YJExpansion.m"; sourceTree = "<group>"; };
+		EC2A54CC1BEF9EED000984DF /* YJMeNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeNavController.h; sourceTree = "<group>"; };
+		EC2A54CD1BEF9EED000984DF /* YJMeNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeNavController.m; sourceTree = "<group>"; };
+		EC2A54CF1BEFAC27000984DF /* UILabel+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YJExpansion.h"; sourceTree = "<group>"; };
+		EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YJExpansion.m"; sourceTree = "<group>"; };
+		EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJMeViewController.xib; sourceTree = "<group>"; };
+		EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJQuickLoginButton.h; sourceTree = "<group>"; };
+		EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJQuickLoginButton.m; sourceTree = "<group>"; };
 		EC75EB6E1BEF216E00A32151 /* Gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75EB721BEF216E00A32151 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EC75EB741BEF216E00A32151 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EC75EB751BEF216E00A32151 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EC75EB771BEF216E00A32151 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EC75EB781BEF216E00A32151 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EC75EB7B1BEF216E00A32151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC75EB7D1BEF216E00A32151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC75EB801BEF216E00A32151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC75EB821BEF216E00A32151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC75EB871BEF216E00A32151 /* GiftsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiftsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75EB8B1BEF216E00A32151 /* GiftsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsTests.m; sourceTree = "<group>"; };
@@ -51,6 +64,25 @@
 		EC75EB921BEF216E00A32151 /* GiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiftsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75EB961BEF216E00A32151 /* GiftsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsUITests.m; sourceTree = "<group>"; };
 		EC75EB981BEF216E00A32151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC75EBBC1BEF651E00A32151 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC75EBBD1BEF651E00A32151 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC75EBC01BEF651E00A32151 /* YJMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainController.h; sourceTree = "<group>"; };
+		EC75EBC11BEF651E00A32151 /* YJMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainController.m; sourceTree = "<group>"; };
+		EC75EBC61BEF653D00A32151 /* YJMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeViewController.h; sourceTree = "<group>"; };
+		EC75EBC71BEF653D00A32151 /* YJMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeViewController.m; sourceTree = "<group>"; };
+		EC75EBC91BEF654800A32151 /* YJHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHotViewController.h; sourceTree = "<group>"; };
+		EC75EBCA1BEF654800A32151 /* YJHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHotViewController.m; sourceTree = "<group>"; };
+		EC75EBCC1BEF655300A32151 /* YJGiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGiftViewController.h; sourceTree = "<group>"; };
+		EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGiftViewController.m; sourceTree = "<group>"; };
+		EC75EBCF1BEF656500A32151 /* YJClssifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJClssifyViewController.h; sourceTree = "<group>"; };
+		EC75EBD01BEF656500A32151 /* YJClssifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJClssifyViewController.m; sourceTree = "<group>"; };
+		EC75EBD21BEF67DF00A32151 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		EC75EBD31BEF693300A32151 /* UIImage+YJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YJImage.h"; sourceTree = "<group>"; };
+		EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YJImage.m"; sourceTree = "<group>"; };
+		EC75EBD51BEF693300A32151 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		EC75EBD61BEF693300A32151 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		EC75EBDC1BEF74DF00A32151 /* YJMainNacController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainNacController.h; sourceTree = "<group>"; };
+		EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainNacController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +133,8 @@
 		EC75EB701BEF216E00A32151 /* Gifts */ = {
 			isa = PBXGroup;
 			children = (
-				EC75EB741BEF216E00A32151 /* AppDelegate.h */,
-				EC75EB751BEF216E00A32151 /* AppDelegate.m */,
-				EC75EB771BEF216E00A32151 /* ViewController.h */,
-				EC75EB781BEF216E00A32151 /* ViewController.m */,
-				EC75EB7A1BEF216E00A32151 /* Main.storyboard */,
+				EC75EBAA1BEF651E00A32151 /* Class */,
 				EC75EB7D1BEF216E00A32151 /* Assets.xcassets */,
-				EC75EB7F1BEF216E00A32151 /* LaunchScreen.storyboard */,
 				EC75EB821BEF216E00A32151 /* Info.plist */,
 				EC75EB711BEF216E00A32151 /* Supporting Files */,
 			);
@@ -138,6 +165,209 @@
 				EC75EB981BEF216E00A32151 /* Info.plist */,
 			);
 			path = GiftsUITests;
+			sourceTree = "<group>";
+		};
+		EC75EBAA1BEF651E00A32151 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBAB1BEF651E00A32151 /* Classify——分类 */,
+				EC75EBAF1BEF651E00A32151 /* Gift——礼物说 */,
+				EC75EBB31BEF651E00A32151 /* Hot——热门 */,
+				EC75EBB71BEF651E00A32151 /* Me——我 */,
+				EC75EBBB1BEF651E00A32151 /* Other */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		EC75EBAB1BEF651E00A32151 /* Classify——分类 */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBAC1BEF651E00A32151 /* Controller */,
+				EC75EBAD1BEF651E00A32151 /* modal */,
+				EC75EBAE1BEF651E00A32151 /* view */,
+			);
+			path = "Classify——分类";
+			sourceTree = "<group>";
+		};
+		EC75EBAC1BEF651E00A32151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBCF1BEF656500A32151 /* YJClssifyViewController.h */,
+				EC75EBD01BEF656500A32151 /* YJClssifyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EC75EBAD1BEF651E00A32151 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		EC75EBAE1BEF651E00A32151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EC75EBAF1BEF651E00A32151 /* Gift——礼物说 */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBB01BEF651E00A32151 /* Controller */,
+				EC75EBB11BEF651E00A32151 /* modal */,
+				EC75EBB21BEF651E00A32151 /* view */,
+			);
+			path = "Gift——礼物说";
+			sourceTree = "<group>";
+		};
+		EC75EBB01BEF651E00A32151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBCC1BEF655300A32151 /* YJGiftViewController.h */,
+				EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EC75EBB11BEF651E00A32151 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		EC75EBB21BEF651E00A32151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EC75EBB31BEF651E00A32151 /* Hot——热门 */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBB41BEF651E00A32151 /* Controller */,
+				EC75EBB51BEF651E00A32151 /* modal */,
+				EC75EBB61BEF651E00A32151 /* view */,
+			);
+			path = "Hot——热门";
+			sourceTree = "<group>";
+		};
+		EC75EBB41BEF651E00A32151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBC91BEF654800A32151 /* YJHotViewController.h */,
+				EC75EBCA1BEF654800A32151 /* YJHotViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EC75EBB51BEF651E00A32151 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		EC75EBB61BEF651E00A32151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EC75EBB71BEF651E00A32151 /* Me——我 */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBB81BEF651E00A32151 /* Controller */,
+				EC75EBB91BEF651E00A32151 /* modal */,
+				EC75EBBA1BEF651E00A32151 /* view */,
+			);
+			path = "Me——我";
+			sourceTree = "<group>";
+		};
+		EC75EBB81BEF651E00A32151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBC61BEF653D00A32151 /* YJMeViewController.h */,
+				EC75EBC71BEF653D00A32151 /* YJMeViewController.m */,
+				EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */,
+				EC2A54CC1BEF9EED000984DF /* YJMeNavController.h */,
+				EC2A54CD1BEF9EED000984DF /* YJMeNavController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EC75EBB91BEF651E00A32151 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		EC75EBBA1BEF651E00A32151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */,
+				EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EC75EBBB1BEF651E00A32151 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBBC1BEF651E00A32151 /* AppDelegate.h */,
+				EC75EBBD1BEF651E00A32151 /* AppDelegate.m */,
+				EC75EBD21BEF67DF00A32151 /* PrefixHeader.pch */,
+				EC75EBBE1BEF651E00A32151 /* calculator */,
+				EC75EBBF1BEF651E00A32151 /* Controller */,
+				EC75EBC21BEF651E00A32151 /* modal */,
+				EC75EBC31BEF651E00A32151 /* view */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		EC75EBBE1BEF651E00A32151 /* calculator */ = {
+			isa = PBXGroup;
+			children = (
+				EC2A54C91BEF9C19000984DF /* UIBarButtonItem+YJExpansion.h */,
+				EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */,
+				EC75EBD31BEF693300A32151 /* UIImage+YJImage.h */,
+				EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */,
+				EC75EBD51BEF693300A32151 /* UIView+Frame.h */,
+				EC75EBD61BEF693300A32151 /* UIView+Frame.m */,
+				EC2A54CF1BEFAC27000984DF /* UILabel+YJExpansion.h */,
+				EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */,
+			);
+			path = calculator;
+			sourceTree = "<group>";
+		};
+		EC75EBBF1BEF651E00A32151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC75EBC01BEF651E00A32151 /* YJMainController.h */,
+				EC75EBC11BEF651E00A32151 /* YJMainController.m */,
+				EC75EBDC1BEF74DF00A32151 /* YJMainNacController.h */,
+				EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EC75EBC21BEF651E00A32151 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modal;
+			sourceTree = "<group>";
+		};
+		EC75EBC31BEF651E00A32151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +432,7 @@
 		EC75EB661BEF216E00A32151 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = yjadair;
 				TargetAttributes = {
@@ -243,9 +474,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC75EB811BEF216E00A32151 /* LaunchScreen.storyboard in Resources */,
 				EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */,
-				EC75EB7C1BEF216E00A32151 /* Main.storyboard in Resources */,
+				EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +500,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC75EB791BEF216E00A32151 /* ViewController.m in Sources */,
-				EC75EB761BEF216E00A32151 /* AppDelegate.m in Sources */,
+				EC2A54D61BEFBD4B000984DF /* YJQuickLoginButton.m in Sources */,
+				EC75EBD11BEF656500A32151 /* YJClssifyViewController.m in Sources */,
+				EC75EBCB1BEF654800A32151 /* YJHotViewController.m in Sources */,
+				EC75EBC41BEF651E00A32151 /* AppDelegate.m in Sources */,
+				EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */,
+				EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */,
+				EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */,
+				EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */,
 				EC75EB731BEF216E00A32151 /* main.m in Sources */,
+				EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */,
+				EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */,
+				EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */,
+				EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */,
+				EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,25 +547,6 @@
 			targetProxy = EC75EB931BEF216E00A32151 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EC75EB7A1BEF216E00A32151 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC75EB7B1BEF216E00A32151 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EC75EB7F1BEF216E00A32151 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC75EB801BEF216E00A32151 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EC75EB991BEF216E00A32151 /* Debug */ = {
@@ -411,6 +633,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				GCC_PREFIX_HEADER = Gifts/Class/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gifts.Gifts;
@@ -422,6 +646,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				GCC_PREFIX_HEADER = Gifts/Class/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Gifts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gifts.Gifts;
@@ -496,6 +722,7 @@
 				EC75EB9D1BEF216E00A32151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC75EB9E1BEF216E00A32151 /* Build configuration list for PBXNativeTarget "GiftsTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +731,7 @@
 				EC75EBA01BEF216E00A32151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC75EBA11BEF216E00A32151 /* Build configuration list for PBXNativeTarget "GiftsUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +740,7 @@
 				EC75EBA31BEF216E00A32151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

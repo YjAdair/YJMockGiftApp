@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  Gifts
+//
+//  Created by yjadair on 15/11/8.
+//  Copyright © 2015年 yjadair. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import "UIImage+YJImage.h"
+#import "UIView+Frame.h"
+#import "UIBarButtonItem+YJExpansion.h"
+#import "UILabel+YJExpansion.h"
+#define YJNslogFunc NSLog(@"%s", __func__);
+/**日志**/
+#ifdef DEBUG
+#define YJLog(...) NSLog(__VA_ARGS__)
+#else
+#define YJLog(...)
+#endif
+
+/**颜色**/
+#define YJColorA(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:a]
+#define YJColor(r, g, b) YJColorA(r, g, b, 1.0)
+#define YJRandomColor YJColor(arc4random_uniform(255.0), arc4random_uniform(255.0), arc4random_uniform(255.0))
+
+#endif
+#endif
