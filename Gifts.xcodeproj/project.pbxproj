@@ -25,6 +25,14 @@
 		EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */; settings = {ASSET_TAGS = (); }; };
 		EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD61BEF693300A32151 /* UIView+Frame.m */; settings = {ASSET_TAGS = (); }; };
 		EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7E9B1BF03A1E001BA197 /* YJMassageSplitBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7E9C1BF03A1E001BA197 /* YJMassageSplitSV.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E9A1BF03A1E001BA197 /* YJMassageSplitSV.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EE11BF0687B001BA197 /* YJNormalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EDF1BF0687B001BA197 /* YJNormalViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE01BF0687B001BA197 /* YJNormalViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EE61BF0688F001BA197 /* YJLikeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EE71BF0688F001BA197 /* YJLikeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */; settings = {ASSET_TAGS = (); }; };
+		ECDC7EEF1BF07458001BA197 /* YJMeSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,20 @@
 		EC75EBD61BEF693300A32151 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		EC75EBDC1BEF74DF00A32151 /* YJMainNacController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainNacController.h; sourceTree = "<group>"; };
 		EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainNacController.m; sourceTree = "<group>"; };
+		ECDC7E971BF03A1E001BA197 /* YJMassageSplitBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMassageSplitBarView.h; sourceTree = "<group>"; };
+		ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMassageSplitBarView.m; sourceTree = "<group>"; };
+		ECDC7E991BF03A1E001BA197 /* YJMassageSplitSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMassageSplitSV.h; sourceTree = "<group>"; };
+		ECDC7E9A1BF03A1E001BA197 /* YJMassageSplitSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMassageSplitSV.m; sourceTree = "<group>"; };
+		ECDC7EDE1BF0687B001BA197 /* YJNormalViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YJNormalViewCell.h; path = ../Controller/YJNormalViewCell.h; sourceTree = "<group>"; };
+		ECDC7EDF1BF0687B001BA197 /* YJNormalViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJNormalViewCell.m; path = ../Controller/YJNormalViewCell.m; sourceTree = "<group>"; };
+		ECDC7EE01BF0687B001BA197 /* YJNormalViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YJNormalViewCell.xib; path = ../Controller/YJNormalViewCell.xib; sourceTree = "<group>"; };
+		ECDC7EE31BF0688F001BA197 /* YJLikeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YJLikeViewCell.h; path = ../Controller/YJLikeViewCell.h; sourceTree = "<group>"; };
+		ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJLikeViewCell.m; path = ../Controller/YJLikeViewCell.m; sourceTree = "<group>"; };
+		ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YJLikeViewCell.xib; path = ../Controller/YJLikeViewCell.xib; sourceTree = "<group>"; };
+		ECDC7EE81BF06CDC001BA197 /* YJMeRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeRowCell.h; sourceTree = "<group>"; };
+		ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeRowCell.m; sourceTree = "<group>"; };
+		ECDC7EED1BF07458001BA197 /* YJMeSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeSectionCell.h; sourceTree = "<group>"; };
+		ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeSectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +325,10 @@
 		EC75EBB91BEF651E00A32151 /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				ECDC7EE81BF06CDC001BA197 /* YJMeRowCell.h */,
+				ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */,
+				ECDC7EED1BF07458001BA197 /* YJMeSectionCell.h */,
+				ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -310,8 +336,18 @@
 		EC75EBBA1BEF651E00A32151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ECDC7EDE1BF0687B001BA197 /* YJNormalViewCell.h */,
+				ECDC7EDF1BF0687B001BA197 /* YJNormalViewCell.m */,
+				ECDC7EE01BF0687B001BA197 /* YJNormalViewCell.xib */,
+				ECDC7EE31BF0688F001BA197 /* YJLikeViewCell.h */,
+				ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */,
+				ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */,
 				EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */,
 				EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */,
+				ECDC7E971BF03A1E001BA197 /* YJMassageSplitBarView.h */,
+				ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */,
+				ECDC7E991BF03A1E001BA197 /* YJMassageSplitSV.h */,
+				ECDC7E9A1BF03A1E001BA197 /* YJMassageSplitSV.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -474,7 +510,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */,
 				EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */,
+				ECDC7EE71BF0688F001BA197 /* YJLikeViewCell.xib in Resources */,
 				EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,17 +540,23 @@
 			files = (
 				EC2A54D61BEFBD4B000984DF /* YJQuickLoginButton.m in Sources */,
 				EC75EBD11BEF656500A32151 /* YJClssifyViewController.m in Sources */,
+				ECDC7EE61BF0688F001BA197 /* YJLikeViewCell.m in Sources */,
 				EC75EBCB1BEF654800A32151 /* YJHotViewController.m in Sources */,
 				EC75EBC41BEF651E00A32151 /* AppDelegate.m in Sources */,
 				EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */,
+				ECDC7EE11BF0687B001BA197 /* YJNormalViewCell.m in Sources */,
 				EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */,
+				ECDC7E9C1BF03A1E001BA197 /* YJMassageSplitSV.m in Sources */,
+				ECDC7E9B1BF03A1E001BA197 /* YJMassageSplitBarView.m in Sources */,
 				EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */,
 				EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */,
 				EC75EB731BEF216E00A32151 /* main.m in Sources */,
 				EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */,
 				EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */,
 				EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */,
+				ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */,
 				EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */,
+				ECDC7EEF1BF07458001BA197 /* YJMeSectionCell.m in Sources */,
 				EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

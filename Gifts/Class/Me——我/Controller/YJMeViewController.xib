@@ -7,10 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJMeViewController">
             <connections>
                 <outlet property="headConstaint" destination="yqy-2n-Y2M" id="gBJ-7i-OTs"/>
-                <outlet property="loginH" destination="Khm-BL-fXO" id="X6P-ZC-Rem"/>
-                <outlet property="loginTop" destination="pBi-q9-KcM" id="cSf-Ox-fWO"/>
-                <outlet property="loginW" destination="Bf7-o9-43B" id="8PO-KF-Mon"/>
-                <outlet property="tableView" destination="aPY-Us-XcG" id="0gJ-Zl-ipM"/>
+                <outlet property="tableView" destination="OaG-nP-0Eu" id="hkt-Yg-R8M"/>
                 <outlet property="view" destination="iN0-l3-epB" id="nPe-JQ-30Z"/>
             </connections>
         </placeholder>
@@ -19,15 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-Us-XcG">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heO-Vm-AuM" userLabel="头部视图">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Me_ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-Et-ZDk">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Me_ProfileBackground" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-Et-ZDk" userLabel="头像">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             <animations/>
                         </imageView>
@@ -52,17 +44,22 @@
                         <constraint firstAttribute="height" constant="200" id="yqy-2n-Y2M"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-nP-0Eu">
+                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="heO-Vm-AuM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2VP-cX-QVS"/>
-                <constraint firstAttribute="bottom" secondItem="aPY-Us-XcG" secondAttribute="bottom" id="6of-ur-ZW7"/>
+                <constraint firstAttribute="trailing" secondItem="OaG-nP-0Eu" secondAttribute="trailing" id="7ZQ-bF-tEk"/>
                 <constraint firstAttribute="trailing" secondItem="heO-Vm-AuM" secondAttribute="trailing" id="8Nl-pw-e1u"/>
-                <constraint firstItem="aPY-Us-XcG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aRs-tD-uM3"/>
-                <constraint firstItem="aPY-Us-XcG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cQ3-ob-hM2"/>
+                <constraint firstAttribute="bottom" secondItem="OaG-nP-0Eu" secondAttribute="bottom" id="Cyj-AT-bR4"/>
                 <constraint firstItem="heO-Vm-AuM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hSB-BN-tNf"/>
-                <constraint firstAttribute="trailing" secondItem="aPY-Us-XcG" secondAttribute="trailing" id="zDO-dg-36D"/>
+                <constraint firstItem="OaG-nP-0Eu" firstAttribute="top" secondItem="heO-Vm-AuM" secondAttribute="bottom" id="lpK-8W-5hh"/>
+                <constraint firstItem="OaG-nP-0Eu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t1S-6N-vAp"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

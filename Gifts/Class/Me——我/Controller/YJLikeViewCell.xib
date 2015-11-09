@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="KGk-i7-Jjw" customClass="YJLikeViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="198.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-V4-MT0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLh-IK-PXN">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="喜欢的礼物"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8U-VF-D7C">
+                                <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="喜欢的攻略"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="E8U-VF-D7C" firstAttribute="leading" secondItem="qLh-IK-PXN" secondAttribute="trailing" id="9IP-AC-7y4"/>
+                            <constraint firstItem="E8U-VF-D7C" firstAttribute="width" secondItem="qLh-IK-PXN" secondAttribute="width" id="JF4-XT-PaM"/>
+                            <constraint firstAttribute="trailing" secondItem="E8U-VF-D7C" secondAttribute="trailing" id="PbX-ef-ZXm"/>
+                            <constraint firstItem="E8U-VF-D7C" firstAttribute="top" secondItem="fgb-V4-MT0" secondAttribute="top" id="Sih-Ij-34u"/>
+                            <constraint firstItem="qLh-IK-PXN" firstAttribute="leading" secondItem="fgb-V4-MT0" secondAttribute="leading" id="TdQ-Qe-mcn"/>
+                            <constraint firstAttribute="bottom" secondItem="E8U-VF-D7C" secondAttribute="bottom" id="aCu-PC-faQ"/>
+                            <constraint firstAttribute="bottom" secondItem="qLh-IK-PXN" secondAttribute="bottom" id="d8G-a9-tIB"/>
+                            <constraint firstItem="E8U-VF-D7C" firstAttribute="leading" secondItem="qLh-IK-PXN" secondAttribute="trailing" id="mNK-HD-tPl"/>
+                            <constraint firstItem="qLh-IK-PXN" firstAttribute="top" secondItem="fgb-V4-MT0" secondAttribute="top" id="pPz-he-s5O"/>
+                            <constraint firstAttribute="height" constant="50" id="xHd-jV-uLI"/>
+                        </constraints>
+                    </view>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iro-nV-8Qw">
+                        <rect key="frame" x="0.0" y="50" width="320" height="148.5"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </scrollView>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="fgb-V4-MT0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BfL-2I-aad"/>
+                    <constraint firstAttribute="trailing" secondItem="fgb-V4-MT0" secondAttribute="trailing" id="SNA-NH-Hjn"/>
+                    <constraint firstItem="iro-nV-8Qw" firstAttribute="top" secondItem="fgb-V4-MT0" secondAttribute="bottom" id="V2t-cR-XhW"/>
+                    <constraint firstItem="iro-nV-8Qw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fhf-8t-cZh"/>
+                    <constraint firstAttribute="bottom" secondItem="iro-nV-8Qw" secondAttribute="bottom" id="g6a-gd-ijF"/>
+                    <constraint firstAttribute="trailing" secondItem="iro-nV-8Qw" secondAttribute="trailing" id="oiN-Wj-jZr"/>
+                    <constraint firstItem="fgb-V4-MT0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zXC-t9-Wuy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="BtnView" destination="fgb-V4-MT0" id="Dxz-Ma-ZXK"/>
+                <outlet property="likeScrollView" destination="iro-nV-8Qw" id="OXo-Ru-JNo"/>
+            </connections>
+            <point key="canvasLocation" x="222" y="289.5"/>
+        </tableViewCell>
+    </objects>
+</document>
