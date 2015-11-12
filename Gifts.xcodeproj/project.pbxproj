@@ -29,6 +29,7 @@
 		EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */; };
 		EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD61BEF693300A32151 /* UIView+Frame.m */; };
 		EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */; };
+		EC81AD811BF440FD00FF4B99 /* YJSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81AD801BF440FD00FF4B99 /* YJSliderView.m */; };
 		ECA762731BF3240C002494B8 /* YJChoicensCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA762711BF3240C002494B8 /* YJChoicensCell.m */; };
 		ECA762741BF3240C002494B8 /* YJChoicensCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA762721BF3240C002494B8 /* YJChoicensCell.xib */; };
 		ECA762771BF32589002494B8 /* YJChoicenRowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA762761BF32589002494B8 /* YJChoicenRowItem.m */; };
@@ -113,6 +114,8 @@
 		EC75EBD61BEF693300A32151 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		EC75EBDC1BEF74DF00A32151 /* YJMainNacController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainNacController.h; sourceTree = "<group>"; };
 		EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainNacController.m; sourceTree = "<group>"; };
+		EC81AD7F1BF440FD00FF4B99 /* YJSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSliderView.h; sourceTree = "<group>"; };
+		EC81AD801BF440FD00FF4B99 /* YJSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSliderView.m; sourceTree = "<group>"; };
 		ECA762701BF3240C002494B8 /* YJChoicensCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJChoicensCell.h; sourceTree = "<group>"; };
 		ECA762711BF3240C002494B8 /* YJChoicensCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJChoicensCell.m; sourceTree = "<group>"; };
 		ECA762721BF3240C002494B8 /* YJChoicensCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJChoicensCell.xib; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				ECA762701BF3240C002494B8 /* YJChoicensCell.h */,
 				ECA762711BF3240C002494B8 /* YJChoicensCell.m */,
 				ECA762721BF3240C002494B8 /* YJChoicensCell.xib */,
+				EC81AD7F1BF440FD00FF4B99 /* YJSliderView.h */,
+				EC81AD801BF440FD00FF4B99 /* YJSliderView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */,
 				ECA762771BF32589002494B8 /* YJChoicenRowItem.m in Sources */,
 				EC2264D31BF1DC9700FBE928 /* YJHaiTaoController.m in Sources */,
+				EC81AD811BF440FD00FF4B99 /* YJSliderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

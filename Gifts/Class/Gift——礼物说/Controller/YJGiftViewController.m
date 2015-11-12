@@ -11,40 +11,45 @@
 #import "YJChoicenessController.h"
 #import "YJHaiTaoController.h"
 #import "YJSportsController.h"
+
 static CGFloat const space = 20;
-#define YJScreenW [UIScreen mainScreen].bounds.size.width
-#define YJScreenH [UIScreen mainScreen].bounds.size.height
 #define YJSliderTitleUrl @"http://api.liwushuo.com/v2/channels/preset?gender=1&generation=1"
+#define YJSliderTitleSize [UIFont systemFontOfSize:15]
+#define YJSliderY 40
+#define YJSliderH 2
+#define YJSliderColor [UIColor orangeColor];
+#define YJTempImageViewW 100
+#define YJTempImageViewH YJTempImageViewW
 @interface YJGiftViewController ()<UIScrollViewDelegate>
 
-
-
-/*<#name#>*/
-@property (weak, nonatomic) UILabel *label;
-
-@property (nonatomic, weak) UILabel *selLabel;
-
+/*显示slider标题的View*/
 @property (weak, nonatomic) IBOutlet UIScrollView *titleScrollView;
-
+/*显示礼物说界面内容的Veiw*/
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
-
-@property (nonatomic, strong) NSMutableArray *titleLabels;
-
-/*<#name#>*/
-@property (strong, nonatomic) UIView *sliderView;
-
-/*<#name#>*/
-@property (assign, nonatomic) CGFloat total;
-/*<#name#>*/
-@property (weak, nonatomic) UILabel *preLabel;
-/*<#name#>*/
-@property (assign, nonatomic) CGFloat preLabelW;
-
-/*<#name#>*/
+/*normal标题*/
+@property (weak, nonatomic) UILabel *label;
+/*select标题*/
+@property (nonatomic, weak) UILabel *selLabel;
+/*存储请求slider标题的响应信息*/
 @property (strong, nonatomic) NSDictionary *sliderTitleArr;
+/*存储设置好的slider标题*/
+@property (nonatomic, strong) NSMutableArray *titleLabels;
+/*滑块*/
+@property (strong, nonatomic) UIView *sliderView;
+/*标题Item的Width和*/
+@property (assign, nonatomic) CGFloat total;
+/*临时的View*/
+@property (weak, nonatomic) UIView *tempView;
 @end
 
 @implementation YJGiftViewController
+
+- (NSMutableArray *)titleLabels{
+    if (_titleLabels == nil) {
+        _titleLabels = [NSMutableArray array];
+    }
+    return _titleLabels;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,6 +64,7 @@ static CGFloat const space = 20;
     [self getTitleAFNetworking];
     
 }
+
 #pragma mark 获取sliderTitle
 - (void)getTitleAFNetworking{
     //创建请求管理者
@@ -69,7 +75,6 @@ static CGFloat const space = 20;
     [requestManage GET:YJSliderTitleUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         self.sliderTitleArr = responseObject;
-       
         // 1.添加所有子控制器
         [self setUpChildViewController];
         
@@ -96,84 +101,53 @@ static CGFloat const space = 20;
     YJNslogFunc
 }
 
-
-
-
-
-
-/*
- 网易新闻实现步骤:
- 1.搭建结构(导航控制器)
- * 自定义导航控制器根控制器NewsViewController
- * 搭建NewsViewController界面(上下滚动条)
- * 确定NewsViewController有多少个子控制器,添加子控制器
- 2.设置上面滚动条标题
- * 遍历所有子控制器
- 3.监听滚动条标题点击
- * 3.1 让标题选中,文字变为红色
- * 3.2 滚动到对应的位置
- * 3.3 在对应的位置添加子控制器view
- 4.监听滚动完成时候
- * 4.1 在对应的位置添加子控制器view
- * 4.2 选中子控制器对应的标题
- */
-
-- (NSMutableArray *)titleLabels
-{
-    if (_titleLabels == nil) {
-        _titleLabels = [NSMutableArray array];
-    }
-    return _titleLabels;
-}
-
-#pragma mark 3.初始化UIScrollView
-// 初始化UIScrollView
-- (void)setUpScrollView
-{
-    NSUInteger count = self.childViewControllers.count;
-    // 设置标题滚动条
-    self.titleScrollView.contentSize = CGSizeMake(_total + space, 0);
-    self.titleScrollView.showsHorizontalScrollIndicator = NO;
-
-    // 设置内容滚动条
-    self.contentScrollView.contentSize = CGSizeMake(count * YJScreenW, 0);
-    // 开启分页
-    self.contentScrollView.pagingEnabled = YES;
-    // 没有弹簧效果
-    self.contentScrollView.bounces = NO;
-    // 隐藏水平滚动条
-    self.contentScrollView.showsHorizontalScrollIndicator = NO;
-    // 设置代理
-    self.contentScrollView.delegate = self;
+#pragma mark  1.添加标题对应的子控制器
+- (void)setUpChildViewController{
+    // 精选
+    YJChoicenessController *choiceness = [[YJChoicenessController alloc] init];
+    //用控制器的title属性保存slider标题
+    choiceness.title = self.sliderTitleArr[@"data"][@"channels"][0][@"name"];
+    [self addChildViewController:choiceness];
+    
+    // 热点
+    YJHaiTaoController *haiTao = [[YJHaiTaoController alloc] init];
+    haiTao.title = self.sliderTitleArr[@"data"][@"channels"][3][@"name"];
+    [self addChildViewController:haiTao];
+    
+    // 运动
+    YJSportsController *sports = [[YJSportsController alloc] init];
+    sports.title = self.sliderTitleArr[@"data"][@"channels"][1][@"name"];
+    [self addChildViewController:sports];
+    
 }
 
 #pragma mark 2.添加所有子控制器对应标题
-// 添加所有子控制器对应标题
-- (void)setUpTitleLabel
-{
+- (void)setUpTitleLabel{
+    //获取当前控制器的子控制器数目
     NSUInteger count = self.childViewControllers.count;
-    
+    //设置标题位置和尺寸
     CGFloat labelX = 0;
     CGFloat labelY = 0;
-    CGFloat labelH = self.titleScrollView.frame.size.height;
-   
+    CGFloat labelH = self.titleScrollView.yj_height;
     for (int i = 0; i < count; i++) {
+        
         // 获取对应子控制器
         UIViewController *vc = self.childViewControllers[i];
         
         // 创建label
         UILabel *label = [[UILabel alloc] init];
-        
         self.label = label;
-        
         
         // 设置label文字
         label.text = vc.title;
         
+        //获取文字宽度
         CGFloat labelW = [self getLabelSize:label.text];
         
         // 设置尺寸
         label.frame = CGRectMake(labelX + space, labelY, labelW, labelH);
+        
+        //slider标题的最大X值
         labelX = CGRectGetMaxX(label.frame);
         
         // 设置高亮文字颜色
@@ -187,7 +161,7 @@ static CGFloat const space = 20;
         
         // 文字居中
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:15];
+        label.font = YJSliderTitleSize;
         
         // 添加到titleLabels数组
         [self.titleLabels addObject:label];
@@ -206,26 +180,74 @@ static CGFloat const space = 20;
         
         //添加滑块到标题滚动条上
         if (i == 0) {
-            _sliderView = [[UIView alloc]initWithFrame:CGRectMake(space, 40, labelW, 2)];
-            _sliderView.backgroundColor = [UIColor orangeColor];
+            _sliderView = [[UIView alloc]initWithFrame:CGRectMake(space, YJSliderY, labelW, YJSliderH)];
+            _sliderView.backgroundColor = YJSliderColor
             [self.titleScrollView addSubview:_sliderView];
         }
         
     }
+    //获取最后一个Item的最大X值
     UILabel *lastLabel = [self.titleLabels lastObject];
     _total = CGRectGetMaxX(lastLabel.frame);
 }
+
+#pragma mark 3.初始化UIScrollView
+- (void)setUpScrollView{
+    NSUInteger count = self.childViewControllers.count;
+    // 设置标题滚动条
+    self.titleScrollView.contentSize = CGSizeMake(_total + space, 0);
+    self.titleScrollView.showsHorizontalScrollIndicator = NO;
+
+    // 设置内容滚动条
+    self.contentScrollView.contentSize = CGSizeMake(count * YJScreenW, 0);
+    // 开启分页
+    self.contentScrollView.pagingEnabled = YES;
+    // 没有弹簧效果
+    self.contentScrollView.bounces = NO;
+    // 隐藏水平滚动条
+    self.contentScrollView.showsHorizontalScrollIndicator = NO;
+    // 设置代理
+    self.contentScrollView.delegate = self;
+}
+
+#pragma mark 获取文字宽度
 - (CGFloat)getLabelSize:(NSString *)title{
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:15]};
+    
+    NSDictionary *attributes = @{NSFontAttributeName :YJSliderTitleSize};
     CGSize size = [title boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
     return ceil(size.width) + space;
 }
-// 设置标题居中
-- (void)setUpTitleCenter:(UILabel *)centerLabel
-{
+
+#pragma mark 点击标题的时候就会调用
+- (void)titleClick:(UITapGestureRecognizer *)tap{
+    // 0.获取选中的label
+    UILabel *selLabel = (UILabel *)tap.view;
+        //0.1 设置滑块的位置
+    [self addAnimationWithSelectedItem:selLabel];
+    
+    // 1.标题颜色变成红色,设置高亮状态下的颜色
+    [self selectLabel:selLabel];
+    
+    // 2.滚动到对应的位置
+    NSInteger index = selLabel.tag;
+        // 2.1 计算滚动的位置
+    CGFloat offsetX = index * YJScreenW;
+    self.contentScrollView.contentOffset = CGPointMake(offsetX, 0);
+    
+    // 3.给对应位置添加对应子控制器
+    [self showVc:index];
+    
+    // 4.让选中的标题居中
+    [self setUpTitleCenter:selLabel];
+    
+}
+
+#pragma mark 设置标题居中
+- (void)setUpTitleCenter:(UILabel *)centerLabel{
     // 计算偏移量
     CGFloat offsetX = centerLabel.center.x - YJScreenW * 0.5;
     
+    //当偏移量小于0时，标题不需要居中
     if (offsetX < 0) offsetX = 0;
     
     // 获取最大滚动范围
@@ -233,35 +255,31 @@ static CGFloat const space = 20;
     
     if (offsetX > maxOffsetX) offsetX = maxOffsetX;
     
-    
     // 滚动标题滚动条
     [self.titleScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     
 }
 
 #pragma mark - UIScrollViewDelegate
-// scrollView一滚动就会调用
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-    //未加载控制的索引
+// scrollView一滚动就会调用，给未加载控制器添加一个临时的View
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //未加载控制器的索引
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width + 1;
-    if (index >= _titleLabels.count - 1) {
-        index = _titleLabels.count - 1;
+    if (index <= _titleLabels.count) {
+       
+        //在未加载控制器的位置添加视图
+        [self showUnloadView:index];
     }
-    //在未加载控制器的位置添加视图
-    [self showUnViewLoaded:index];
     
 }
-
+// scrollView——停止滚动时调用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    //移除临时的View
+    [self.tempView removeFromSuperview];
     
     // 计算滚动到哪一页
     NSInteger index = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    
-    
-    
-    //    CGFloat offsetX = scrollView.contentOffset.x;
     
     // 1.添加子控制器view
     [self showVc:index];
@@ -274,125 +292,86 @@ static CGFloat const space = 20;
     // 3.让选中的标题居中
     [self setUpTitleCenter:selLabel];
     
-    
 }
 
-// 显示控制器的view
-- (void)showVc:(NSInteger)index
-{
-    CGFloat offsetX = index * YJScreenW;
-    
+#pragma mark 显示控制器的view
+- (void)showVc:(NSInteger)index{
+    //获取对应的控制器
     UIViewController *vc = self.childViewControllers[index];
     
     // 判断控制器的view有没有加载过,如果已经加载过,就不需要加载
     if (vc.isViewLoaded) return;
     
+    //设置控制器的View的位置和尺寸
+    CGFloat offsetX = index * YJScreenW;
     vc.view.frame = CGRectMake(offsetX, 0, YJScreenW, YJScreenH);
     
+    //将标题对应的控制器添加到内容View上
     [self.contentScrollView addSubview:vc.view];
 }
-//为显示控制器的View时添加临时的View
-- (void)showUnViewLoaded:(NSInteger)index{
-    CGFloat offsetX = index * YJScreenW;
+
+#pragma makr 为未显示控制器的View时添加临时的View
+- (void)showUnloadView:(NSInteger)index{
+
+    //获取即将显示的控制器
     UIViewController *vc = self.childViewControllers[index];
+    
+    //如果控制器的View未加载，就设置一个临时的View
     if (!vc.isViewLoaded) {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(offsetX, 0, YJScreenW, YJScreenH)];
+        //设置临时的View的位置和尺寸
+        CGFloat offsetX = index * YJScreenW;
+        UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(offsetX, 0, YJScreenW, YJScreenH)];
+        self.tempView = tempView;
+        //在临时的View中添加正在加载图片
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, YJTempImageViewW, YJTempImageViewH)];
+        imageView.center = CGPointMake(tempView.yj_width / 2, tempView.yj_height / 2);
         imageView.image = [UIImage imageNamed:@"TabBar_gift"];
-        [self.contentScrollView addSubview:imageView];
+        [tempView addSubview:imageView];
+       
+        [self.contentScrollView addSubview:tempView];
     }
 }
-// 点击标题的时候就会调用
-- (void)titleClick:(UITapGestureRecognizer *)tap
-{
-    
-    // 0.获取选中的label
-    UILabel *selLabel = (UILabel *)tap.view;
-    [self addAnimationWithSelectedItem:selLabel];
-    // 1.标题颜色变成红色,设置高亮状态下的颜色
-    [self selectLabel:selLabel];
-    
-    // 2.滚动到对应的位置
-    NSInteger index = selLabel.tag;
-    // 2.1 计算滚动的位置
-    CGFloat offsetX = index * YJScreenW;
-    self.contentScrollView.contentOffset = CGPointMake(offsetX, 0);
-    
-    // 3.给对应位置添加对应子控制器
-    [self showVc:index];
-    
-    // 4.让选中的标题居中
-    [self setUpTitleCenter:selLabel];
-    
-    
-    
-}
 
-// 选中label
-- (void)selectLabel:(UILabel *)label
-{
+#pragma mark 设置选中的Item
+- (void)selectLabel:(UILabel *)label{
     if (label == self.selLabel) {
         return;
     }
-    // 取消高亮
+    // 取消之前选中Item高亮
     _selLabel.highlighted = NO;
-    // 取消形变
-        _selLabel.transform = CGAffineTransformIdentity;
-    // 颜色恢复
+    // 恢复之前选中Item颜色
     _selLabel.textColor = [UIColor blackColor];
     
-    // 高亮
+    //设置选中Item高亮
     label.highlighted = YES;
-    // 形变
-//        label.transform = CGAffineTransformMakeScale(radio, radio);
-    
     _selLabel = label;
     
 }
 
-#pragma mark  1.添加所有子控制器对应标题
-// 添加所有子控制器
-- (void)setUpChildViewController
-{
-    // 精选
-    YJChoicenessController *choiceness = [[YJChoicenessController alloc] init];
-    choiceness.title = self.sliderTitleArr[@"data"][@"channels"][0][@"name"];
-    [self addChildViewController:choiceness];
-
-    // 热点
-    YJHaiTaoController *haiTao = [[YJHaiTaoController alloc] init];
-    haiTao.title = self.sliderTitleArr[@"data"][@"channels"][3][@"name"];
-    [self addChildViewController:haiTao];
-    
-    // 运动
-    YJSportsController *sports = [[YJSportsController alloc] init];
-    sports.title = self.sliderTitleArr[@"data"][@"channels"][1][@"name"];
-    [self addChildViewController:sports];
-  
-}
-
+#pragma mark 设置滑块移动动画
 - (void)addAnimationWithSelectedItem:(UILabel *)item {
-    // Caculate the distance of translation
+    // 计算当前选中的item和上一次选中的item的距离
     CGFloat dx = CGRectGetMidX(item.frame) - CGRectGetMidX(_selLabel.frame);
-    //    CGFloat dx1 = [_titleLabels indexOfObject:item] * item.frame.size.width;
-    // Add the animation about translation
+
+    // 给滑块添加位置动画
     CABasicAnimation *positionAnimation = [CABasicAnimation animation];
     positionAnimation.keyPath = @"position.x";
     positionAnimation.fromValue = @(_sliderView.layer.position.x);
     positionAnimation.toValue = @(_sliderView.layer.position.x + dx);
     
-    // Add the animation about size
+    // 给滑块添加尺寸动画
     CABasicAnimation *boundsAnimation = [CABasicAnimation animation];
     boundsAnimation.keyPath = @"bounds.size.width";
     boundsAnimation.fromValue = @(CGRectGetWidth(_sliderView.layer.bounds));
     boundsAnimation.toValue = @(CGRectGetWidth(item.frame) - space);
     
-    // Combine all the animations to a group
+    // 将位置动画和尺寸动画组合起来
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
     animationGroup.animations = @[positionAnimation, boundsAnimation];
     animationGroup.duration = 0.2;
     [_sliderView.layer addAnimation:animationGroup forKey:@"basic"];
     
-    // Keep the state after animating
+    // 保持动画执行完后的滑块状态
     _sliderView.layer.position = CGPointMake(_sliderView.layer.position.x + dx, _sliderView.layer.position.y);
     CGRect rect = _sliderView.layer.bounds;
     rect.size.width = CGRectGetWidth(item.frame) - space;

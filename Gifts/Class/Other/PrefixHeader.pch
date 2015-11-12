@@ -17,6 +17,8 @@
 #import "AFNetworking.h"
 #import "UIColor+YJExpansion.h"
 #define YJNslogFunc NSLog(@"%s", __func__);
+#define YJScreenW [UIScreen mainScreen].bounds.size.width
+#define YJScreenH [UIScreen mainScreen].bounds.size.height
 /**日志**/
 #ifdef DEBUG
 #define YJLog(...) NSLog(__VA_ARGS__)
