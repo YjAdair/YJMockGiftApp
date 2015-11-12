@@ -22,8 +22,11 @@
     [self.likeCount sizeToFit];
     
     self.title.text = itemCell.title;
-}
 
+}
++ (NSString *)ID{
+    return @"choicensCell";
+}
 + (YJChoicensCell *)choicensCell{
     return [[NSBundle mainBundle]loadNibNamed:@"YJChoicensCell" owner:nil options:nil][0];
 }

@@ -7,8 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJChoicenessController">
             <connections>
                 <outlet property="itemsTableView" destination="yu2-FP-OAA" id="Rsb-wA-Gm2"/>
-                <outlet property="promotionView" destination="Vif-6S-13v" id="ue7-8f-d7i"/>
-                <outlet property="scrollView" destination="mof-AM-gHQ" id="DpQ-OX-qh4"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ksl-gm-KMG"/>
             </connections>
         </placeholder>
@@ -17,61 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mof-AM-gHQ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="WYV-wf-tSv"/>
-                    </constraints>
-                </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vif-6S-13v">
-                    <rect key="frame" x="0.0" y="150" width="375" height="80"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-M7-nTI" customClass="YJQuickLoginButton">
-                            <rect key="frame" x="0.0" y="0.0" width="94" height="80"/>
-                            <animations/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK9-Um-tGX" customClass="YJQuickLoginButton">
-                            <rect key="frame" x="94" y="0.0" width="93.5" height="80"/>
-                            <animations/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxi-Su-uh9" customClass="YJQuickLoginButton">
-                            <rect key="frame" x="281" y="0.0" width="93.5" height="80"/>
-                            <animations/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qE-sH-7a1" customClass="YJQuickLoginButton">
-                            <rect key="frame" x="187" y="0.0" width="94" height="80"/>
-                            <animations/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                    </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="hxi-Su-uh9" firstAttribute="width" secondItem="ZpQ-M7-nTI" secondAttribute="width" id="5m7-RL-gsD"/>
-                        <constraint firstItem="ZpQ-M7-nTI" firstAttribute="top" secondItem="Vif-6S-13v" secondAttribute="top" id="75L-au-fkw"/>
-                        <constraint firstAttribute="bottom" secondItem="hxi-Su-uh9" secondAttribute="bottom" id="8e7-v7-dVQ"/>
-                        <constraint firstAttribute="bottom" secondItem="NK9-Um-tGX" secondAttribute="bottom" id="D87-7K-y6p"/>
-                        <constraint firstItem="NK9-Um-tGX" firstAttribute="top" secondItem="Vif-6S-13v" secondAttribute="top" id="FNU-IP-SOV"/>
-                        <constraint firstAttribute="bottom" secondItem="1qE-sH-7a1" secondAttribute="bottom" id="Mee-Ge-ouo"/>
-                        <constraint firstItem="hxi-Su-uh9" firstAttribute="leading" secondItem="1qE-sH-7a1" secondAttribute="trailing" id="SA0-da-V7k"/>
-                        <constraint firstItem="1qE-sH-7a1" firstAttribute="width" secondItem="ZpQ-M7-nTI" secondAttribute="width" id="UPt-6U-MF2"/>
-                        <constraint firstAttribute="height" constant="80" id="UTC-ax-dE7"/>
-                        <constraint firstItem="NK9-Um-tGX" firstAttribute="leading" secondItem="ZpQ-M7-nTI" secondAttribute="trailing" id="VSE-oC-LCF"/>
-                        <constraint firstItem="hxi-Su-uh9" firstAttribute="top" secondItem="Vif-6S-13v" secondAttribute="top" id="bHK-HI-2vu"/>
-                        <constraint firstItem="ZpQ-M7-nTI" firstAttribute="leading" secondItem="Vif-6S-13v" secondAttribute="leading" id="cJ6-KZ-YXP"/>
-                        <constraint firstAttribute="trailing" secondItem="hxi-Su-uh9" secondAttribute="trailing" id="dxa-lS-RT1"/>
-                        <constraint firstItem="NK9-Um-tGX" firstAttribute="width" secondItem="ZpQ-M7-nTI" secondAttribute="width" id="gmF-0M-qvf"/>
-                        <constraint firstItem="1qE-sH-7a1" firstAttribute="leading" secondItem="NK9-Um-tGX" secondAttribute="trailing" id="p0e-ov-6oc"/>
-                        <constraint firstItem="1qE-sH-7a1" firstAttribute="top" secondItem="Vif-6S-13v" secondAttribute="top" id="tbY-KP-ylv"/>
-                        <constraint firstAttribute="bottom" secondItem="ZpQ-M7-nTI" secondAttribute="bottom" id="uwS-Xn-sOs"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-FP-OAA" userLabel="itemsTable">
-                    <rect key="frame" x="0.0" y="230" width="375" height="437"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -83,13 +28,7 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Vif-6S-13v" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ArP-qG-pET"/>
-                <constraint firstAttribute="trailing" secondItem="Vif-6S-13v" secondAttribute="trailing" id="B3j-JQ-81U"/>
-                <constraint firstItem="mof-AM-gHQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GdX-EL-ujF"/>
-                <constraint firstItem="Vif-6S-13v" firstAttribute="top" secondItem="mof-AM-gHQ" secondAttribute="bottom" id="JQo-ga-6cv"/>
-                <constraint firstItem="yu2-FP-OAA" firstAttribute="top" secondItem="Vif-6S-13v" secondAttribute="bottom" id="TAp-Ze-Tfh"/>
-                <constraint firstItem="mof-AM-gHQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UbP-0v-J0f"/>
-                <constraint firstAttribute="trailing" secondItem="mof-AM-gHQ" secondAttribute="trailing" id="Vnf-Mf-YHl"/>
+                <constraint firstItem="yu2-FP-OAA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4Vd-Cq-ps3"/>
                 <constraint firstItem="yu2-FP-OAA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eyq-Uf-9KY"/>
                 <constraint firstAttribute="bottom" secondItem="yu2-FP-OAA" secondAttribute="bottom" id="ij9-Vb-S2u"/>
                 <constraint firstAttribute="trailing" secondItem="yu2-FP-OAA" secondAttribute="trailing" id="jJZ-IF-gkv"/>

@@ -14,4 +14,5 @@
 /*<#name#>*/
 @property (assign, nonatomic) CGFloat cellHeight;
 + (YJChoicensCell *)choicensCell;
++ (NSString *)ID;
 @end

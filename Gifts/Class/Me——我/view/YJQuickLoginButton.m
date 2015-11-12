@@ -9,7 +9,6 @@
 #import "YJQuickLoginButton.h"
 
 @implementation YJQuickLoginButton
-
 - (void)awakeFromNib
 {
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -29,4 +28,5 @@
     self.titleLabel.yj_width = self.yj_width;
     self.titleLabel.yj_height = self.yj_height - self.titleLabel.yj_y;
 }
+
 @end

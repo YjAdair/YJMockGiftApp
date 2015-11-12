@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJCellController">
             <connections>
+                <outlet property="commentBtn" destination="KAx-iY-QCO" id="jhn-oi-d5A"/>
+                <outlet property="likeBtn" destination="vrB-pI-7fu" id="KeY-4b-Ztk"/>
+                <outlet property="shareBtn" destination="PsE-dc-WeH" id="bKK-8u-W8n"/>
+                <outlet property="tabBarView" destination="6pn-FS-0DB" id="7qd-Aw-pHa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="zGx-e7-e7t"/>
                 <outlet property="webView" destination="DAR-RN-ViW" id="TQ3-pb-6ir"/>
             </connections>
@@ -16,18 +20,58 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAR-RN-ViW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <animations/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pn-FS-0DB">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrB-pI-7fu" userLabel="like">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
+                            <animations/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsE-dc-WeH" userLabel="share">
+                            <rect key="frame" x="125" y="0.0" width="125" height="44"/>
+                            <animations/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-iY-QCO" userLabel="comment">
+                            <rect key="frame" x="250" y="0.0" width="125" height="44"/>
+                            <animations/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="PsE-dc-WeH" firstAttribute="leading" secondItem="vrB-pI-7fu" secondAttribute="trailing" id="09i-Jj-zo2"/>
+                        <constraint firstAttribute="bottom" secondItem="KAx-iY-QCO" secondAttribute="bottom" id="9Ou-Pe-eY5"/>
+                        <constraint firstItem="PsE-dc-WeH" firstAttribute="width" secondItem="vrB-pI-7fu" secondAttribute="width" id="9PZ-U6-KN9"/>
+                        <constraint firstItem="vrB-pI-7fu" firstAttribute="top" secondItem="6pn-FS-0DB" secondAttribute="top" id="C5p-6H-XUf"/>
+                        <constraint firstAttribute="trailing" secondItem="KAx-iY-QCO" secondAttribute="trailing" id="Lsw-bX-pZl"/>
+                        <constraint firstItem="KAx-iY-QCO" firstAttribute="leading" secondItem="PsE-dc-WeH" secondAttribute="trailing" id="b5W-eP-58F"/>
+                        <constraint firstItem="PsE-dc-WeH" firstAttribute="top" secondItem="6pn-FS-0DB" secondAttribute="top" id="bYf-ya-fjk"/>
+                        <constraint firstItem="KAx-iY-QCO" firstAttribute="width" secondItem="vrB-pI-7fu" secondAttribute="width" id="cFa-Sj-fCS"/>
+                        <constraint firstAttribute="bottom" secondItem="PsE-dc-WeH" secondAttribute="bottom" id="crj-Gb-zWn"/>
+                        <constraint firstAttribute="bottom" secondItem="vrB-pI-7fu" secondAttribute="bottom" id="jyC-2C-fMX"/>
+                        <constraint firstItem="KAx-iY-QCO" firstAttribute="top" secondItem="6pn-FS-0DB" secondAttribute="top" id="pKu-14-7BL"/>
+                        <constraint firstItem="vrB-pI-7fu" firstAttribute="leading" secondItem="6pn-FS-0DB" secondAttribute="leading" id="rKf-EZ-pbE"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="DAR-RN-ViW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CRw-5O-Wdl"/>
-                <constraint firstAttribute="bottom" secondItem="DAR-RN-ViW" secondAttribute="bottom" constant="70" id="Nft-Jk-uvU"/>
+                <constraint firstAttribute="bottom" secondItem="6pn-FS-0DB" secondAttribute="bottom" id="Nau-tl-ksB"/>
+                <constraint firstAttribute="bottom" secondItem="DAR-RN-ViW" secondAttribute="bottom" constant="44" id="Nft-Jk-uvU"/>
+                <constraint firstAttribute="trailing" secondItem="6pn-FS-0DB" secondAttribute="trailing" id="Wo5-R2-Aad"/>
                 <constraint firstAttribute="trailing" secondItem="DAR-RN-ViW" secondAttribute="trailing" id="k4U-JN-cV5"/>
                 <constraint firstItem="DAR-RN-ViW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oCz-ve-OMB"/>
+                <constraint firstItem="6pn-FS-0DB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ohv-Ha-nSh"/>
+                <constraint firstItem="6pn-FS-0DB" firstAttribute="top" secondItem="DAR-RN-ViW" secondAttribute="bottom" id="uQ1-0X-e5l"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="261.5" y="113.5"/>

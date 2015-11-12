@@ -12,5 +12,7 @@
 /*<#name#>*/
 @property (strong, nonatomic) NSArray *cellContentUrlArr;
 /*<#name#>*/
+@property (strong, nonatomic) NSArray *cellLikeCountArr;
+/*<#name#>*/
 @property (assign, nonatomic) NSInteger choiceIndex;
 @end

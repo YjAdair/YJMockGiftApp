@@ -31,7 +31,9 @@ static CGFloat const space = 20;
 /*select标题*/
 @property (nonatomic, weak) UILabel *selLabel;
 /*存储请求slider标题的响应信息*/
-@property (strong, nonatomic) NSDictionary *sliderTitleArr;
+@property (strong, nonatomic) NSArray *sliderDataArr;
+/*<#name#>*/
+@property (strong, nonatomic) NSMutableArray *sliderTitleArr;
 /*存储设置好的slider标题*/
 @property (nonatomic, strong) NSMutableArray *titleLabels;
 /*滑块*/
@@ -50,6 +52,12 @@ static CGFloat const space = 20;
     }
     return _titleLabels;
 }
+- (NSMutableArray *)sliderTitleArr{
+    if (!_sliderTitleArr) {
+        _sliderTitleArr = [NSMutableArray array];
+    }
+    return _sliderTitleArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +68,9 @@ static CGFloat const space = 20;
     UIBarButtonItem *searchItem = [UIBarButtonItem itemWithNorImage:[UIImage imageNamed:@"Feed_SearchBtn"] Target:self Action:@selector(nightmode)];
     self.navigationItem.rightBarButtonItems = @[searchItem, nightItem];
     
+    // iOS7会给导航控制器下所有的UIScrollView顶部添加额外滚动区域
+    // 不想要添加
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //获取sliderTitle
     [self getTitleAFNetworking];
     
@@ -74,16 +85,16 @@ static CGFloat const space = 20;
     //发送GET请求
     [requestManage GET:YJSliderTitleUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
-        self.sliderTitleArr = responseObject;
+        self.sliderDataArr = responseObject[@"data"][@"channels"];
+
+        for (int i = 0; i < self.sliderDataArr.count; i++) {
+            [self.sliderTitleArr addObject:self.sliderDataArr[i][@"name"]];
+        }
         // 1.添加所有子控制器
         [self setUpChildViewController];
         
         // 2.添加所有子控制器对应标题
         [self setUpTitleLabel];
-        
-        // iOS7会给导航控制器下所有的UIScrollView顶部添加额外滚动区域
-        // 不想要添加
-        self.automaticallyAdjustsScrollViewInsets = NO;
         
         // 3.初始化UIScrollView
         [self setUpScrollView];
@@ -105,18 +116,14 @@ static CGFloat const space = 20;
 - (void)setUpChildViewController{
     // 精选
     YJChoicenessController *choiceness = [[YJChoicenessController alloc] init];
-    //用控制器的title属性保存slider标题
-    choiceness.title = self.sliderTitleArr[@"data"][@"channels"][0][@"name"];
     [self addChildViewController:choiceness];
     
     // 热点
     YJHaiTaoController *haiTao = [[YJHaiTaoController alloc] init];
-    haiTao.title = self.sliderTitleArr[@"data"][@"channels"][3][@"name"];
     [self addChildViewController:haiTao];
     
     // 运动
     YJSportsController *sports = [[YJSportsController alloc] init];
-    sports.title = self.sliderTitleArr[@"data"][@"channels"][1][@"name"];
     [self addChildViewController:sports];
     
 }
@@ -131,24 +138,20 @@ static CGFloat const space = 20;
     CGFloat labelH = self.titleScrollView.yj_height;
     for (int i = 0; i < count; i++) {
         
-        // 获取对应子控制器
-        UIViewController *vc = self.childViewControllers[i];
-        
         // 创建label
         UILabel *label = [[UILabel alloc] init];
         self.label = label;
         
         // 设置label文字
-        label.text = vc.title;
+        label.text = self.sliderTitleArr[i];
         
         //获取文字宽度
         CGFloat labelW = [self getLabelSize:label.text];
         
+        //slider标题的最大X值
+        labelX = i * labelW;
         // 设置尺寸
         label.frame = CGRectMake(labelX + space, labelY, labelW, labelH);
-        
-        //slider标题的最大X值
-        labelX = CGRectGetMaxX(label.frame);
         
         // 设置高亮文字颜色
         label.highlightedTextColor = [UIColor redColor];
@@ -162,7 +165,7 @@ static CGFloat const space = 20;
         // 文字居中
         label.textAlignment = NSTextAlignmentCenter;
         label.font = YJSliderTitleSize;
-        
+
         // 添加到titleLabels数组
         [self.titleLabels addObject:label];
         
@@ -184,7 +187,6 @@ static CGFloat const space = 20;
             _sliderView.backgroundColor = YJSliderColor
             [self.titleScrollView addSubview:_sliderView];
         }
-        
     }
     //获取最后一个Item的最大X值
     UILabel *lastLabel = [self.titleLabels lastObject];
