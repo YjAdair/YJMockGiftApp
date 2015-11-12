@@ -12,4 +12,5 @@
 
 + (instancetype)itemWithNorImage:(UIImage *)norImage Target:(id)target Action:(SEL)selector;
 + (instancetype)itemWithImage:(UIImage *)norImage  Target:(id)target Action:(SEL)selector;
++ (instancetype)itemWithImage:(UIImage *)norImage Target:(id)target Action:(SEL)selector Title:(NSString *)title;
 @end

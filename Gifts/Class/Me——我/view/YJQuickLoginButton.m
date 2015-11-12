@@ -20,7 +20,7 @@
     [super layoutSubviews];
     
     // 调整图片的位置和尺寸
-    self.imageView.yj_y = 0;
+    self.imageView.yj_y = 10;
     self.imageView.yj_centerX = self.yj_width * 0.5;
     
     // 调整文字的位置和尺寸

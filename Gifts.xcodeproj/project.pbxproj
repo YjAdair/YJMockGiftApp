@@ -7,32 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */; settings = {ASSET_TAGS = (); }; };
-		EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CD1BEF9EED000984DF /* YJMeNavController.m */; settings = {ASSET_TAGS = (); }; };
-		EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */; settings = {ASSET_TAGS = (); }; };
-		EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		EC2A54D61BEFBD4B000984DF /* YJQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */; settings = {ASSET_TAGS = (); }; };
+		EC2264D01BF1DC4D00FBE928 /* YJChoicenessController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2264CF1BF1DC4D00FBE928 /* YJChoicenessController.m */; };
+		EC2264D31BF1DC9700FBE928 /* YJHaiTaoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2264D21BF1DC9700FBE928 /* YJHaiTaoController.m */; };
+		EC2264D61BF1DCCA00FBE928 /* YJSportsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2264D51BF1DCCA00FBE928 /* YJSportsController.m */; };
+		EC24684FE8BF2FB8F10C6F2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CE216CBE24CF25529E17AC /* libPods.a */; };
+		EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */; };
+		EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54CD1BEF9EED000984DF /* YJMeNavController.m */; };
+		EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */; };
+		EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */; };
+		EC2A54D61BEFBD4B000984DF /* YJQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */; };
 		EC75EB731BEF216E00A32151 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB721BEF216E00A32151 /* main.m */; };
 		EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75EB7D1BEF216E00A32151 /* Assets.xcassets */; };
 		EC75EB8C1BEF216E00A32151 /* GiftsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB8B1BEF216E00A32151 /* GiftsTests.m */; };
 		EC75EB971BEF216E00A32151 /* GiftsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EB961BEF216E00A32151 /* GiftsUITests.m */; };
-		EC75EBC41BEF651E00A32151 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBBD1BEF651E00A32151 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC11BEF651E00A32151 /* YJMainController.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC71BEF653D00A32151 /* YJMeViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBCB1BEF654800A32151 /* YJHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCA1BEF654800A32151 /* YJHotViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBD11BEF656500A32151 /* YJClssifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD01BEF656500A32151 /* YJClssifyViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD61BEF693300A32151 /* UIView+Frame.m */; settings = {ASSET_TAGS = (); }; };
-		EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7E9B1BF03A1E001BA197 /* YJMassageSplitBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7E9C1BF03A1E001BA197 /* YJMassageSplitSV.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E9A1BF03A1E001BA197 /* YJMassageSplitSV.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EE11BF0687B001BA197 /* YJNormalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EDF1BF0687B001BA197 /* YJNormalViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE01BF0687B001BA197 /* YJNormalViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EE61BF0688F001BA197 /* YJLikeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EE71BF0688F001BA197 /* YJLikeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */; settings = {ASSET_TAGS = (); }; };
-		ECDC7EEF1BF07458001BA197 /* YJMeSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */; settings = {ASSET_TAGS = (); }; };
+		EC75EBC41BEF651E00A32151 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBBD1BEF651E00A32151 /* AppDelegate.m */; };
+		EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC11BEF651E00A32151 /* YJMainController.m */; };
+		EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBC71BEF653D00A32151 /* YJMeViewController.m */; };
+		EC75EBCB1BEF654800A32151 /* YJHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCA1BEF654800A32151 /* YJHotViewController.m */; };
+		EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */; };
+		EC75EBD11BEF656500A32151 /* YJClssifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD01BEF656500A32151 /* YJClssifyViewController.m */; };
+		EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD41BEF693300A32151 /* UIImage+YJImage.m */; };
+		EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBD61BEF693300A32151 /* UIView+Frame.m */; };
+		EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */; };
+		ECA762731BF3240C002494B8 /* YJChoicensCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA762711BF3240C002494B8 /* YJChoicensCell.m */; };
+		ECA762741BF3240C002494B8 /* YJChoicensCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA762721BF3240C002494B8 /* YJChoicensCell.xib */; };
+		ECA762771BF32589002494B8 /* YJChoicenRowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA762761BF32589002494B8 /* YJChoicenRowItem.m */; };
+		ECA7627A1BF33EB3002494B8 /* YJCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA762791BF33EB3002494B8 /* YJCellController.m */; };
+		ECA7627E1BF356DF002494B8 /* YJCellController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA7627D1BF356DF002494B8 /* YJCellController.xib */; };
+		ECC2E5DC1BF243E300974835 /* YJChoicenessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC2E5DB1BF243E300974835 /* YJChoicenessController.xib */; };
+		ECCFD3541BF4145600D33427 /* UIColor+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCFD3531BF4145600D33427 /* UIColor+YJExpansion.m */; };
+		ECDC7E9B1BF03A1E001BA197 /* YJMassageSplitBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */; };
+		ECDC7E9C1BF03A1E001BA197 /* YJMassageSplitSV.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7E9A1BF03A1E001BA197 /* YJMassageSplitSV.m */; };
+		ECDC7EE11BF0687B001BA197 /* YJNormalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EDF1BF0687B001BA197 /* YJNormalViewCell.m */; };
+		ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE01BF0687B001BA197 /* YJNormalViewCell.xib */; };
+		ECDC7EE61BF0688F001BA197 /* YJLikeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */; };
+		ECDC7EE71BF0688F001BA197 /* YJLikeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */; };
+		ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */; };
+		ECDC7EEF1BF07458001BA197 /* YJMeSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */; };
+		ECDC7EF11BF08B94001BA197 /* YJGiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EF01BF08B94001BA197 /* YJGiftViewController.xib */; };
+		ECDC7EF41BF08DF9001BA197 /* YJAutoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EF31BF08DF9001BA197 /* YJAutoScrollerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +66,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		186F5973D7B5688DCAA90618 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9069FE3740872E3B5F7A89D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E6CE216CBE24CF25529E17AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2264CE1BF1DC4D00FBE928 /* YJChoicenessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJChoicenessController.h; sourceTree = "<group>"; };
+		EC2264CF1BF1DC4D00FBE928 /* YJChoicenessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJChoicenessController.m; sourceTree = "<group>"; };
+		EC2264D11BF1DC9700FBE928 /* YJHaiTaoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHaiTaoController.h; sourceTree = "<group>"; };
+		EC2264D21BF1DC9700FBE928 /* YJHaiTaoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHaiTaoController.m; sourceTree = "<group>"; };
+		EC2264D41BF1DCCA00FBE928 /* YJSportsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJSportsController.h; sourceTree = "<group>"; };
+		EC2264D51BF1DCCA00FBE928 /* YJSportsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJSportsController.m; sourceTree = "<group>"; };
 		EC2A54C91BEF9C19000984DF /* UIBarButtonItem+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+YJExpansion.h"; sourceTree = "<group>"; };
 		EC2A54CA1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+YJExpansion.m"; sourceTree = "<group>"; };
 		EC2A54CC1BEF9EED000984DF /* YJMeNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeNavController.h; sourceTree = "<group>"; };
@@ -60,8 +82,8 @@
 		EC2A54CF1BEFAC27000984DF /* UILabel+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YJExpansion.h"; sourceTree = "<group>"; };
 		EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YJExpansion.m"; sourceTree = "<group>"; };
 		EC2A54D21BEFB0D0000984DF /* YJMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJMeViewController.xib; sourceTree = "<group>"; };
-		EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJQuickLoginButton.h; sourceTree = "<group>"; };
-		EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJQuickLoginButton.m; sourceTree = "<group>"; };
+		EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YJQuickLoginButton.h; path = "../../Me——我/view/YJQuickLoginButton.h"; sourceTree = "<group>"; };
+		EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJQuickLoginButton.m; path = "../../Me——我/view/YJQuickLoginButton.m"; sourceTree = "<group>"; };
 		EC75EB6E1BEF216E00A32151 /* Gifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75EB721BEF216E00A32151 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC75EB7D1BEF216E00A32151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +113,17 @@
 		EC75EBD61BEF693300A32151 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		EC75EBDC1BEF74DF00A32151 /* YJMainNacController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainNacController.h; sourceTree = "<group>"; };
 		EC75EBDD1BEF74DF00A32151 /* YJMainNacController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMainNacController.m; sourceTree = "<group>"; };
+		ECA762701BF3240C002494B8 /* YJChoicensCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJChoicensCell.h; sourceTree = "<group>"; };
+		ECA762711BF3240C002494B8 /* YJChoicensCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJChoicensCell.m; sourceTree = "<group>"; };
+		ECA762721BF3240C002494B8 /* YJChoicensCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJChoicensCell.xib; sourceTree = "<group>"; };
+		ECA762751BF32589002494B8 /* YJChoicenRowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJChoicenRowItem.h; sourceTree = "<group>"; };
+		ECA762761BF32589002494B8 /* YJChoicenRowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJChoicenRowItem.m; sourceTree = "<group>"; };
+		ECA762781BF33EB3002494B8 /* YJCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YJCellController.h; path = "Gifts/Class/Gift——礼物说/YJCellController.h"; sourceTree = SOURCE_ROOT; };
+		ECA762791BF33EB3002494B8 /* YJCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJCellController.m; path = "Gifts/Class/Gift——礼物说/YJCellController.m"; sourceTree = SOURCE_ROOT; };
+		ECA7627D1BF356DF002494B8 /* YJCellController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJCellController.xib; sourceTree = "<group>"; };
+		ECC2E5DB1BF243E300974835 /* YJChoicenessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJChoicenessController.xib; sourceTree = "<group>"; };
+		ECCFD3521BF4145600D33427 /* UIColor+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YJExpansion.h"; sourceTree = "<group>"; };
+		ECCFD3531BF4145600D33427 /* UIColor+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YJExpansion.m"; sourceTree = "<group>"; };
 		ECDC7E971BF03A1E001BA197 /* YJMassageSplitBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMassageSplitBarView.h; sourceTree = "<group>"; };
 		ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMassageSplitBarView.m; sourceTree = "<group>"; };
 		ECDC7E991BF03A1E001BA197 /* YJMassageSplitSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMassageSplitSV.h; sourceTree = "<group>"; };
@@ -105,6 +138,9 @@
 		ECDC7EE91BF06CDC001BA197 /* YJMeRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeRowCell.m; sourceTree = "<group>"; };
 		ECDC7EED1BF07458001BA197 /* YJMeSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMeSectionCell.h; sourceTree = "<group>"; };
 		ECDC7EEE1BF07458001BA197 /* YJMeSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMeSectionCell.m; sourceTree = "<group>"; };
+		ECDC7EF01BF08B94001BA197 /* YJGiftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJGiftViewController.xib; sourceTree = "<group>"; };
+		ECDC7EF21BF08DF9001BA197 /* YJAutoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YJAutoScrollerView.h; path = "../../Gift——礼物说/view/YJAutoScrollerView.h"; sourceTree = "<group>"; };
+		ECDC7EF31BF08DF9001BA197 /* YJAutoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJAutoScrollerView.m; path = "../../Gift——礼物说/view/YJAutoScrollerView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC24684FE8BF2FB8F10C6F2C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +169,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD428B6474FA81B5AED67DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				186F5973D7B5688DCAA90618 /* Pods.debug.xcconfig */,
+				9069FE3740872E3B5F7A89D2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5E1A16EEFBEBBBBFD747AABF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6CE216CBE24CF25529E17AC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC75EB651BEF216E00A32151 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +193,8 @@
 				EC75EB8A1BEF216E00A32151 /* GiftsTests */,
 				EC75EB951BEF216E00A32151 /* GiftsUITests */,
 				EC75EB6F1BEF216E00A32151 /* Products */,
+				0FD428B6474FA81B5AED67DC /* Pods */,
+				5E1A16EEFBEBBBBFD747AABF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +305,17 @@
 			children = (
 				EC75EBCC1BEF655300A32151 /* YJGiftViewController.h */,
 				EC75EBCD1BEF655300A32151 /* YJGiftViewController.m */,
+				ECDC7EF01BF08B94001BA197 /* YJGiftViewController.xib */,
+				EC2264CE1BF1DC4D00FBE928 /* YJChoicenessController.h */,
+				EC2264CF1BF1DC4D00FBE928 /* YJChoicenessController.m */,
+				ECC2E5DB1BF243E300974835 /* YJChoicenessController.xib */,
+				EC2264D11BF1DC9700FBE928 /* YJHaiTaoController.h */,
+				EC2264D21BF1DC9700FBE928 /* YJHaiTaoController.m */,
+				EC2264D41BF1DCCA00FBE928 /* YJSportsController.h */,
+				EC2264D51BF1DCCA00FBE928 /* YJSportsController.m */,
+				ECA762781BF33EB3002494B8 /* YJCellController.h */,
+				ECA762791BF33EB3002494B8 /* YJCellController.m */,
+				ECA7627D1BF356DF002494B8 /* YJCellController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +323,8 @@
 		EC75EBB11BEF651E00A32151 /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				ECA762751BF32589002494B8 /* YJChoicenRowItem.h */,
+				ECA762761BF32589002494B8 /* YJChoicenRowItem.m */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -263,6 +332,9 @@
 		EC75EBB21BEF651E00A32151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ECA762701BF3240C002494B8 /* YJChoicensCell.h */,
+				ECA762711BF3240C002494B8 /* YJChoicensCell.m */,
+				ECA762721BF3240C002494B8 /* YJChoicensCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -342,8 +414,6 @@
 				ECDC7EE31BF0688F001BA197 /* YJLikeViewCell.h */,
 				ECDC7EE41BF0688F001BA197 /* YJLikeViewCell.m */,
 				ECDC7EE51BF0688F001BA197 /* YJLikeViewCell.xib */,
-				EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */,
-				EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */,
 				ECDC7E971BF03A1E001BA197 /* YJMassageSplitBarView.h */,
 				ECDC7E981BF03A1E001BA197 /* YJMassageSplitBarView.m */,
 				ECDC7E991BF03A1E001BA197 /* YJMassageSplitSV.h */,
@@ -377,6 +447,8 @@
 				EC75EBD61BEF693300A32151 /* UIView+Frame.m */,
 				EC2A54CF1BEFAC27000984DF /* UILabel+YJExpansion.h */,
 				EC2A54D01BEFAC27000984DF /* UILabel+YJExpansion.m */,
+				ECCFD3521BF4145600D33427 /* UIColor+YJExpansion.h */,
+				ECCFD3531BF4145600D33427 /* UIColor+YJExpansion.m */,
 			);
 			path = calculator;
 			sourceTree = "<group>";
@@ -402,6 +474,10 @@
 		EC75EBC31BEF651E00A32151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				EC2A54D41BEFBD4B000984DF /* YJQuickLoginButton.h */,
+				EC2A54D51BEFBD4B000984DF /* YJQuickLoginButton.m */,
+				ECDC7EF21BF08DF9001BA197 /* YJAutoScrollerView.h */,
+				ECDC7EF31BF08DF9001BA197 /* YJAutoScrollerView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -413,9 +489,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC75EB9B1BEF216E00A32151 /* Build configuration list for PBXNativeTarget "Gifts" */;
 			buildPhases = (
+				0B19913540975BE6C5BB489B /* Check Pods Manifest.lock */,
 				EC75EB6A1BEF216E00A32151 /* Sources */,
 				EC75EB6B1BEF216E00A32151 /* Frameworks */,
 				EC75EB6C1BEF216E00A32151 /* Resources */,
+				94F554FF97978DA7465AF2D6 /* Embed Pods Frameworks */,
+				C60225793A633538BE2B3DD9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -510,9 +589,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA762741BF3240C002494B8 /* YJChoicensCell.xib in Resources */,
+				ECDC7EF11BF08B94001BA197 /* YJGiftViewController.xib in Resources */,
 				ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */,
 				EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */,
+				ECA7627E1BF356DF002494B8 /* YJCellController.xib in Resources */,
 				ECDC7EE71BF0688F001BA197 /* YJLikeViewCell.xib in Resources */,
+				ECC2E5DC1BF243E300974835 /* YJChoicenessController.xib in Resources */,
 				EC2A54D31BEFB0D0000984DF /* YJMeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +616,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B19913540975BE6C5BB489B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94F554FF97978DA7465AF2D6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C60225793A633538BE2B3DD9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC75EB6A1BEF216E00A32151 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -546,18 +677,26 @@
 				EC75EBD81BEF693300A32151 /* UIView+Frame.m in Sources */,
 				ECDC7EE11BF0687B001BA197 /* YJNormalViewCell.m in Sources */,
 				EC2A54CE1BEF9EED000984DF /* YJMeNavController.m in Sources */,
+				ECCFD3541BF4145600D33427 /* UIColor+YJExpansion.m in Sources */,
 				ECDC7E9C1BF03A1E001BA197 /* YJMassageSplitSV.m in Sources */,
+				EC2264D61BF1DCCA00FBE928 /* YJSportsController.m in Sources */,
 				ECDC7E9B1BF03A1E001BA197 /* YJMassageSplitBarView.m in Sources */,
 				EC75EBDE1BEF74DF00A32151 /* YJMainNacController.m in Sources */,
+				ECA762731BF3240C002494B8 /* YJChoicensCell.m in Sources */,
 				EC75EBC51BEF651E00A32151 /* YJMainController.m in Sources */,
+				EC2264D01BF1DC4D00FBE928 /* YJChoicenessController.m in Sources */,
 				EC75EB731BEF216E00A32151 /* main.m in Sources */,
 				EC2A54D11BEFAC27000984DF /* UILabel+YJExpansion.m in Sources */,
 				EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */,
 				EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */,
+				ECDC7EF41BF08DF9001BA197 /* YJAutoScrollerView.m in Sources */,
 				ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */,
+				ECA7627A1BF33EB3002494B8 /* YJCellController.m in Sources */,
 				EC2A54CB1BEF9C19000984DF /* UIBarButtonItem+YJExpansion.m in Sources */,
 				ECDC7EEF1BF07458001BA197 /* YJMeSectionCell.m in Sources */,
 				EC75EBCE1BEF655300A32151 /* YJGiftViewController.m in Sources */,
+				ECA762771BF32589002494B8 /* YJChoicenRowItem.m in Sources */,
+				EC2264D31BF1DC9700FBE928 /* YJHaiTaoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +814,7 @@
 		};
 		EC75EB9C1BEF216E00A32151 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 186F5973D7B5688DCAA90618 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
@@ -688,6 +828,7 @@
 		};
 		EC75EB9D1BEF216E00A32151 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9069FE3740872E3B5F7A89D2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
