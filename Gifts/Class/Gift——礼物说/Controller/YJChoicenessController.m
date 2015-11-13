@@ -143,7 +143,6 @@
 }
 #pragma mark 创建Cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPat{
-  
     if (indexPat.row == 0) {
 
         YJAutoCell *itemCell = [tableView dequeueReusableCellWithIdentifier:[YJAutoCell ID]];

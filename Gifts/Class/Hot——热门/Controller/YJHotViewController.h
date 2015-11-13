@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YJHotViewController : UIViewController
+@interface YJHotViewController : UICollectionViewController
 
 @end

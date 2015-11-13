@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hotCell" id="Tyw-h1-IPw" customClass="YJHotCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZc-Sv-zTU">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="130"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="Liv-Vt-u0l"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWj-vZ-Ube">
+                        <rect key="frame" x="0.0" y="170" width="75" height="30"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA4-Kv-rMT">
+                        <rect key="frame" x="75" y="170" width="75" height="30"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qta-wM-moz">
+                        <rect key="frame" x="0.0" y="130" width="130" height="40"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Srh-uG-LLv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <animations/>
+            <constraints>
+                <constraint firstItem="PZc-Sv-zTU" firstAttribute="top" secondItem="Tyw-h1-IPw" secondAttribute="top" id="1da-Q2-cfD"/>
+                <constraint firstItem="DA4-Kv-rMT" firstAttribute="width" secondItem="WWj-vZ-Ube" secondAttribute="width" id="321-u8-wmG"/>
+                <constraint firstItem="Qta-wM-moz" firstAttribute="leading" secondItem="Tyw-h1-IPw" secondAttribute="leading" id="8DY-ql-0KA"/>
+                <constraint firstAttribute="trailing" secondItem="Qta-wM-moz" secondAttribute="trailing" constant="20" id="DHM-6c-1Ah"/>
+                <constraint firstItem="WWj-vZ-Ube" firstAttribute="top" secondItem="Qta-wM-moz" secondAttribute="bottom" id="Ejg-HO-2mk"/>
+                <constraint firstItem="WWj-vZ-Ube" firstAttribute="leading" secondItem="Tyw-h1-IPw" secondAttribute="leading" id="HYG-UJ-SXj"/>
+                <constraint firstItem="Qta-wM-moz" firstAttribute="top" secondItem="PZc-Sv-zTU" secondAttribute="bottom" id="QPm-NA-NPm"/>
+                <constraint firstItem="PZc-Sv-zTU" firstAttribute="leading" secondItem="Tyw-h1-IPw" secondAttribute="leading" id="UsX-Uw-A62"/>
+                <constraint firstItem="DA4-Kv-rMT" firstAttribute="leading" secondItem="WWj-vZ-Ube" secondAttribute="trailing" id="WOK-mG-Z7s"/>
+                <constraint firstAttribute="bottom" secondItem="DA4-Kv-rMT" secondAttribute="bottom" id="atd-6M-Nfq"/>
+                <constraint firstAttribute="trailing" secondItem="PZc-Sv-zTU" secondAttribute="trailing" id="cD0-82-JTq"/>
+                <constraint firstAttribute="trailing" secondItem="DA4-Kv-rMT" secondAttribute="trailing" id="eGt-W1-8jX"/>
+                <constraint firstAttribute="bottom" secondItem="WWj-vZ-Ube" secondAttribute="bottom" id="s5N-Gw-abL"/>
+                <constraint firstItem="DA4-Kv-rMT" firstAttribute="top" secondItem="Qta-wM-moz" secondAttribute="bottom" id="vtH-YM-skr"/>
+            </constraints>
+            <size key="customSize" width="196" height="124"/>
+            <connections>
+                <outlet property="icon" destination="PZc-Sv-zTU" id="th3-Yw-gb7"/>
+                <outlet property="likeCount" destination="DA4-Kv-rMT" id="Q4f-On-4ld"/>
+                <outlet property="money" destination="WWj-vZ-Ube" id="It5-Pe-SLU"/>
+                <outlet property="title" destination="Qta-wM-moz" id="nsw-gv-hJF"/>
+            </connections>
+            <point key="canvasLocation" x="-141" y="510"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -48,6 +48,8 @@
 		ECDC7EF11BF08B94001BA197 /* YJGiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDC7EF01BF08B94001BA197 /* YJGiftViewController.xib */; };
 		ECDC7EF41BF08DF9001BA197 /* YJAutoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDC7EF31BF08DF9001BA197 /* YJAutoScrollerView.m */; };
 		ECE6736F1BF4FAB80025AEFC /* UIButton+YJExpansion.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE6736E1BF4FAB80025AEFC /* UIButton+YJExpansion.m */; };
+		ECF63FF21BF58F150030C569 /* YJHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF63FF11BF58F150030C569 /* YJHotCell.m */; };
+		ECF63FF41BF58F1F0030C569 /* YJHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF63FF31BF58F1F0030C569 /* YJHotCell.xib */; };
 		ECF7F2C31BF4B36200F99493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F2C21BF4B36200F99493 /* AppDelegate.m */; };
 		ECF7F2C61BF4B37F00F99493 /* YJMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F2C51BF4B37F00F99493 /* YJMainController.m */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,9 @@
 		ECDC7EF31BF08DF9001BA197 /* YJAutoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YJAutoScrollerView.m; path = "../../Gift——礼物说/view/YJAutoScrollerView.m"; sourceTree = "<group>"; };
 		ECE6736D1BF4FAB80025AEFC /* UIButton+YJExpansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YJExpansion.h"; sourceTree = "<group>"; };
 		ECE6736E1BF4FAB80025AEFC /* UIButton+YJExpansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YJExpansion.m"; sourceTree = "<group>"; };
+		ECF63FF01BF58F150030C569 /* YJHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHotCell.h; sourceTree = "<group>"; };
+		ECF63FF11BF58F150030C569 /* YJHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHotCell.m; sourceTree = "<group>"; };
+		ECF63FF31BF58F1F0030C569 /* YJHotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJHotCell.xib; sourceTree = "<group>"; };
 		ECF7F2C11BF4B36200F99493 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECF7F2C21BF4B36200F99493 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ECF7F2C41BF4B37F00F99493 /* YJMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMainController.h; sourceTree = "<group>"; };
@@ -384,6 +389,9 @@
 		EC75EBB61BEF651E00A32151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ECF63FF01BF58F150030C569 /* YJHotCell.h */,
+				ECF63FF11BF58F150030C569 /* YJHotCell.m */,
+				ECF63FF31BF58F1F0030C569 /* YJHotCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -610,6 +618,7 @@
 			files = (
 				ECA762741BF3240C002494B8 /* YJChoicensCell.xib in Resources */,
 				ECDC7EF11BF08B94001BA197 /* YJGiftViewController.xib in Resources */,
+				ECF63FF41BF58F1F0030C569 /* YJHotCell.xib in Resources */,
 				EC52BF4A1BF4C24000AB7BB7 /* YJAutoCell.xib in Resources */,
 				ECDC7EE21BF0687B001BA197 /* YJNormalViewCell.xib in Resources */,
 				EC75EB7E1BEF216E00A32151 /* Assets.xcassets in Resources */,
@@ -709,6 +718,7 @@
 				EC52BF491BF4C24000AB7BB7 /* YJAutoCell.m in Sources */,
 				EC75EBC81BEF653D00A32151 /* YJMeViewController.m in Sources */,
 				EC75EBD71BEF693300A32151 /* UIImage+YJImage.m in Sources */,
+				ECF63FF21BF58F150030C569 /* YJHotCell.m in Sources */,
 				ECF7F2C61BF4B37F00F99493 /* YJMainController.m in Sources */,
 				ECDC7EF41BF08DF9001BA197 /* YJAutoScrollerView.m in Sources */,
 				ECDC7EEA1BF06CDC001BA197 /* YJMeRowCell.m in Sources */,
