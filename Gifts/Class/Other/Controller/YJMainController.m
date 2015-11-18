@@ -58,8 +58,6 @@
     if ([VC isKindOfClass:[YJMeViewController class]]) {
         nav = [[YJMeNavController alloc]initWithRootViewController:VC];
     }
-
-    VC.view.backgroundColor = YJRandomColor;
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = normalImage;
     nav.tabBarItem.selectedImage = selectImage;

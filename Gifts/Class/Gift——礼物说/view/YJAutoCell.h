@@ -12,8 +12,7 @@
 /*存放礼物说广告图片地址*/
 @property (strong, nonatomic) NSMutableArray *bannerImageUrlArr;
 
-- (void)getPromotionsImageUrlAFNetwork;
-
 + (NSString *)ID;
 + (YJAutoCell *)autoCell;
+- (CGFloat)cellHeight;
 @end

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YJChoicenRowItem.h"
+#import "YJGiftCellDetail.h"
+
 @interface YJChoicensCell : UITableViewCell
 /*<#name#>*/
-@property (strong, nonatomic) YJChoicenRowItem *itemCell;
-/*<#name#>*/
 @property (assign, nonatomic) CGFloat cellHeight;
+
+/*<#name#>*/
+@property (strong, nonatomic) YJGiftCellDetail *cellDetail;
+
 + (YJChoicensCell *)choicensCell;
 + (NSString *)ID;
 @end

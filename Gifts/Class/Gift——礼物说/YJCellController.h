@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class YJGiftCellDetail;
 @interface YJCellController : UIViewController
+
 /*<#name#>*/
-@property (strong, nonatomic) NSArray *cellContentUrlArr;
-/*<#name#>*/
-@property (strong, nonatomic) NSArray *cellLikeCountArr;
-/*<#name#>*/
-@property (assign, nonatomic) NSInteger choiceIndex;
+@property (strong, nonatomic) YJGiftCellDetail *giftCellDetail;
 @end

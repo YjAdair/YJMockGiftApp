@@ -12,7 +12,7 @@
 /*<#name#>*/
 @property (strong, nonatomic) NSData *imageData;
 /*<#name#>*/
-@property (strong, nonatomic) NSNumber *likeCount;
+@property (assign, nonatomic) int likeCount;
 /*<#name#>*/
 @property (strong, nonatomic) NSString *title;
 @end

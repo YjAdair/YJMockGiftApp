@@ -11,4 +11,5 @@
 @interface UIImage (YJImage)
 + (instancetype)imageOriginImage:(NSString *)imageName;
 + (UIImage*) OriginImage:(UIImage *)image scaleToSize:(CGSize)size;
+
 @end

@@ -16,6 +16,9 @@
 #import "UILabel+YJExpansion.h"
 #import "AFNetworking.h"
 #import "UIColor+YJExpansion.h"
+#import "NSObject+Property.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
 #define YJNslogFunc NSLog(@"%s", __func__);
 #define YJScreenW [UIScreen mainScreen].bounds.size.width
 #define YJScreenH [UIScreen mainScreen].bounds.size.height

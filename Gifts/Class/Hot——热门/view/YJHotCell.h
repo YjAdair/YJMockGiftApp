@@ -7,16 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YJHotDetail.h"
 @interface YJHotCell : UICollectionViewCell
+
 /*<#name#>*/
-@property (strong, nonatomic) NSString *collectionImageUrl;
-/*<#name#>*/
-@property (strong, nonatomic) NSString *collectionTitle;
-/*<#name#>*/
-@property (strong, nonatomic) NSString *collectionPrice;
-/*<#name#>*/
-@property (strong, nonatomic) NSNumber *collectionFavoritesCount;
+@property (strong, nonatomic) YJHotDetail *hotDetail;
+
 + (NSString *)ID;
 + (YJHotCell *)hotCell;
 @end

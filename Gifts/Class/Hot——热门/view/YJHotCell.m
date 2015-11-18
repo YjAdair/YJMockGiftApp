@@ -7,6 +7,7 @@
 //
 
 #import "YJHotCell.h"
+#import <UIImageView+WebCache.h>
 @interface YJHotCell()
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *title;
@@ -29,29 +30,15 @@
 + (YJHotCell *)hotCell{
     return [[NSBundle mainBundle] loadNibNamed:@"YJHotCell" owner:nil options:nil][0];
 }
-
-- (void)setCollectionImageUrl:(NSString *)collectionImageUrl{
-    _collectionImageUrl = collectionImageUrl;
-        
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [manager GET:collectionImageUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-                self.icon.image = [UIImage imageWithData:responseObject];
-            
-        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-            
-        }];
-}
-- (void)setCollectionTitle:(NSString *)collectionTitle{
-    _collectionTitle = collectionTitle;
-    self.title.text = collectionTitle;
-}
-- (void)setCollectionPrice:(NSString *)collectionPrice{
-    _collectionPrice = collectionPrice;
-    self.money.text = [NSString stringWithFormat:@"￥%@", collectionPrice];
-}
-- (void)setCollectionFavoritesCount:(NSNumber *)collectionFavoritesCount{
-    _collectionFavoritesCount = collectionFavoritesCount;
-    self.likeCount.text = collectionFavoritesCount.stringValue;
+- (void)setHotDetail:(YJHotDetail *)hotDetail{
+    _hotDetail = hotDetail;
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:hotDetail.cover_image_url]placeholderImage:[UIImage imageNamed:@"PlaceHolderImage_small"]];
+    
+    self.title.text = hotDetail.name;
+    
+    self.money.text = [NSString stringWithFormat:@"￥%@",hotDetail.price];
+    
+    self.likeCount.text = [NSString stringWithFormat:@"%d",hotDetail.favorites_count];
 }
 @end

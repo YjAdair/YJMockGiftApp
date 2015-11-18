@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YJChoicenessController : UIViewController
+@interface YJChoicenessController : UITableViewController
 
 @end

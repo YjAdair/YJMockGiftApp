@@ -14,19 +14,15 @@
 #import "YJCellController.h"
 
 #import "YJAutoCell.h"
+#import "YJGiftBanner.h"
+#import "YJGiftCellDetail.h"
 #define kCount 4
-
+#define YJCellDetail  @"http://api.liwushuo.com/v2/channels/100/items?ad=1&gender=1&generation=1&limit=20&offset=0"
+// 弱引用
+#define XMGWeakSelf __weak typeof(self) weakSelf = self;
 @interface YJChoicenessController()<UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
-/*<#name#>*/
-@property (strong, nonatomic) NSArray *bannersArr;
-
-/*<#name#>*/
-@property (strong, nonatomic) NSArray *tempItemsData;
-/*<#name#>*/
-@property (strong, nonatomic) NSArray *itemsDataArr;
-/*<#name#>*/
-@property (strong, nonatomic) NSMutableArray *itemsArr;
+/** 请求管理者 */
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
 
 /*<#name#>*/
 @property (strong, nonatomic) NSMutableArray *cellContentUrlArr;
@@ -34,22 +30,20 @@
 @property (strong, nonatomic) NSMutableArray *cellLikeCountArr;
 
 /*<#name#>*/
-@property (strong, nonatomic) NSMutableArray *tempBannerImageUrlArr;
+@property (strong, nonatomic) NSMutableArray *giftCellDetailArr;
+
+/*<#name#>*/
+@property (strong, nonatomic) NSString *giftNextCellDetailUrl;
 @end
 @implementation YJChoicenessController
 
-- (NSMutableArray *)tempBannerImageUrlArr{
-    if (!_tempBannerImageUrlArr) {
-        _tempBannerImageUrlArr = [NSMutableArray array];
+- (NSMutableArray *)giftCellDetailArr{
+    if (!_giftCellDetailArr) {
+        _giftCellDetailArr = [NSMutableArray array];
     }
-    return _tempBannerImageUrlArr;
+    return _giftCellDetailArr;
 }
-- (NSMutableArray *)itemsArr{
-    if (!_itemsArr) {
-        _itemsArr = [NSMutableArray array];
-    }
-    return _itemsArr;
-}
+
 - (NSMutableArray *)cellContentUrlArr{
     if (!_cellContentUrlArr) {
         _cellContentUrlArr = [NSMutableArray array];
@@ -62,123 +56,140 @@
     }
     return _cellLikeCountArr;
 }
+- (AFHTTPSessionManager *)manager{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
-
+- (instancetype)init{
+    return [self initWithStyle:(UITableViewStyleGrouped)];
+}
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self getBannerImageUrlAFNetwork];
-    [self getTempItemsData];
-  
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    [self setupRefresh];
 }
-#pragma mark 获取广告图片地址
-- (void)getBannerImageUrlAFNetwork{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:@"http://api.liwushuo.com/v2/banners?channel=iOS" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        
-        self.bannersArr = responseObject[@"data"][@"banners"];
-
-        for (int i = 0; i < self.bannersArr.count; i++) {
-            [self.tempBannerImageUrlArr addObject:self.bannersArr[i][@"image_url"]];
-        }
-        
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        
-    }];
+#pragma mark -上下刷新
+- (void)setupRefresh{
     
+    // 下拉刷新
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    
+    // 自动改变透明度
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    // 马上进入刷新状态
+    [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
+//下拉刷新
+- (void)loadNewTopics{
+    
+    // 取消之前的所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    // 发送请求
+    XMGWeakSelf;
+    [self.manager GET:YJCellDetail parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *ItemsData = responseObject[@"data"][@"items"];
 
-#pragma mark 获取cell的信息
-- (void)getTempItemsData{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager GET:@"http://api.liwushuo.com/v2/channels/100/items?ad=1&gender=1&generation=1&limit=20&offset=0" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-       self.tempItemsData = responseObject[@"data"][@"items"];
-        
-        for (int i = 0; i < self.tempItemsData.count; i++) {
-            [self.cellContentUrlArr addObject:self.tempItemsData[i][@"content_url"]];
-            [self.cellLikeCountArr addObject:self.tempItemsData[i][@"likes_count"]];
+        weakSelf.giftNextCellDetailUrl = responseObject[@"data"][@"paging"][@"next_url"];
+
+        for (int i = 0; i < ItemsData.count; i++) {
+            
+            YJGiftCellDetail *cellDetail = [YJGiftCellDetail mj_objectWithKeyValues:ItemsData[i]];
+            [weakSelf.giftCellDetailArr addObject:cellDetail];
+            
         }
-        [self getItemsData];
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        
+        // 结束刷新
+        [weakSelf.tableView.mj_header endRefreshing];
+        weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        [weakSelf.tableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 结束刷新
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
-#pragma mark 获取图片的Data
-- (void)getItemsData{
-    NSMutableArray *itemsDataArr = [NSMutableArray array];
-    for (int i = 0; i < self.tempItemsData.count; i++) {
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [manager GET:self.tempItemsData[i][@"cover_image_url"] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-            [itemsDataArr addObject:responseObject];
-            if (itemsDataArr.count == self.tempItemsData.count) {
-                self.itemsDataArr = itemsDataArr;
-                [self setUpItems];
-            }
-            
-        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-            
-        }];
-    }
-}
-#pragma mark 设置cell
-- (void)setUpItems{
- 
-    for (int i = 0; i < self.itemsDataArr.count; i++) {
+/**
+ * 加载更多的帖子数据
+ */
+- (void)loadMoreTopics{
+    
+    // 取消之前的所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+
+    // 发送请求
+    XMGWeakSelf;
+    [self.manager GET:self.giftNextCellDetailUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        YJChoicenRowItem *rowItem = [[YJChoicenRowItem alloc]init];
-        rowItem.imageData = self.itemsDataArr[i];
-        rowItem.title = self.tempItemsData[i][@"title"];
-        rowItem.likeCount = self.tempItemsData[i][@"likes_count"];
-        [self.itemsArr addObject:rowItem];
-        
-    }
-  
-   [self.itemsTableView reloadData];
+        NSArray *ItemsData = responseObject[@"data"][@"items"];
+        weakSelf.giftNextCellDetailUrl = responseObject[@"data"][@"paging"][@"next_url"];
+        for (int i = 0; i < ItemsData.count; i++) {
+            
+            YJGiftCellDetail *cellDetail = [YJGiftCellDetail mj_objectWithKeyValues:ItemsData[i]];
+            [weakSelf.giftCellDetailArr addObject:cellDetail];
+            
+        }
+        // 结束刷新
+        [weakSelf.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 结束刷新
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   return self.itemsArr.count;
+   
+    if (section == 0) {
+        return 1;
+    }else{
+        return self.giftCellDetailArr.count;
+    }
+    
 }
 #pragma mark 创建Cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPat{
-    if (indexPat.row == 0) {
+    if (indexPat.section == 0) {
 
         YJAutoCell *itemCell = [tableView dequeueReusableCellWithIdentifier:[YJAutoCell ID]];
         if (!itemCell) {
             itemCell = [YJAutoCell autoCell];
         }
-        [itemCell getPromotionsImageUrlAFNetwork];
-       itemCell.bannerImageUrlArr = self.tempBannerImageUrlArr;
         return itemCell;
     }else{
         YJChoicensCell *itemCell = [tableView dequeueReusableCellWithIdentifier:[YJChoicensCell ID]];
         if (!itemCell) {
             itemCell = [YJChoicensCell choicensCell];
         }
-        YJChoicenRowItem *rowItem = self.itemsArr[indexPat.row];
-        itemCell.itemCell = rowItem;
+        itemCell.cellDetail = self.giftCellDetailArr[indexPat.row];
+        
         return itemCell;
     }
    
 }
 #pragma mark 设置cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
-    if (indexPat.row == 0) {
-        return 230;
+    if (indexPat.section == 0) {
+        YJAutoCell *autoCell = [YJAutoCell autoCell];
+        return autoCell.cellHeight;
     }else{
-        
         YJChoicensCell *choicensCell = [YJChoicensCell choicensCell];
         return choicensCell.cellHeight;
     }
 }
-
+#pragma mark -选择cell时调用
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    YJGiftCellDetail *cellDetail = self.giftCellDetailArr[indexPath.row];
+    
     YJCellController *cellController = [[YJCellController alloc] init];
-    cellController.cellContentUrlArr = self.cellContentUrlArr;
-    cellController.cellLikeCountArr = self.cellLikeCountArr;
-    cellController.choiceIndex = indexPath.row;
+    cellController.giftCellDetail = cellDetail;
     cellController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cellController animated:YES];
 }

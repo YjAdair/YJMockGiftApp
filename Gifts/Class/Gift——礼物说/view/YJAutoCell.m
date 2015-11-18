@@ -9,151 +9,133 @@
 #import "YJAutoCell.h"
 #import "YJAutoScrollerView.h"
 #import "YJQuickLoginButton.h"
+#import "YJGiftBanner.h"
+#import "YJGiftPromotion.h"
+#import <SDImageCache.h>
+#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
+
+
+#define YJPromotionUrl @"http://api.liwushuo.com/v2/promotions?gender=1&generation=1"
+#define YJBannerUrl @"http://api.liwushuo.com/v2/banners?channel=iOS"
 @interface YJAutoCell()
 @property (weak, nonatomic) IBOutlet UIView *promotionView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic)  YJAutoScrollerView *autoSV;
-/*<#name#>*/
-@property (strong, nonatomic) NSArray *promotionArr;
-/*存放礼物说推荐图片地址*/
-@property (strong, nonatomic) NSMutableArray *promotionImageUrlArr;
-/*存放礼物说推荐标题地址*/
-@property (strong, nonatomic) NSMutableArray *promotionTitleArr;
-/*<#name#>*/
-@property (strong, nonatomic) NSMutableArray *prmotionTitleColorArr;
-/*存放礼物说推荐图片data*/
-@property (strong, nonatomic) NSArray *promotionDataArr;
+
+/*广告信息*/
+@property (strong, nonatomic) NSMutableArray *giftBannersArr;
+/*网络请求管理者*/
+@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 @end
 @implementation YJAutoCell
+- (AFHTTPRequestOperationManager *)manager{
+    if (!_manager) {
+        _manager = [AFHTTPRequestOperationManager manager];
+    }
+    return _manager;
+}
+- (NSMutableArray *)giftBannersArr{
+    if (!_giftBannersArr) {
+        _giftBannersArr = [NSMutableArray array];
+    }
+    return _giftBannersArr;
+}
 
-- (NSMutableArray *)promotionImageUrlArr{
-    if (!_promotionImageUrlArr) {
-        _promotionImageUrlArr = [NSMutableArray array];
-    }
-    return _promotionImageUrlArr;
+#pragma mark 获取广告信息
+- (void)awakeFromNib {
+
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager GET:YJBannerUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+        NSArray *bannersArr = [YJGiftBanner mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banners"]];
+        
+        //设置广告
+        [self addAuto:bannersArr];
+        
+        //设置promotion信息
+        [self getPromotionsUrlAFNetwork];
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"请求失败");
+    }];
 }
-- (NSMutableArray *)promotionTitleArr{
-    if (!_promotionTitleArr) {
-        _promotionTitleArr = [NSMutableArray array];
-    }
-    return _promotionTitleArr;
-}
-- (NSMutableArray *)prmotionTitleColorArr{
-    if (!_prmotionTitleColorArr) {
-        _prmotionTitleColorArr = [NSMutableArray array];
-    }
-    return _prmotionTitleColorArr;
-}
-- (void)setBannerImageUrlArr:(NSMutableArray *)bannerImageUrlArr{
-    _bannerImageUrlArr = bannerImageUrlArr;
+#pragma mark 设置广告
+- (void)addAuto:(NSArray *)bannersArr{
     
     YJAutoScrollerView *autoSV = [[YJAutoScrollerView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     self.autoSV = autoSV;
-
+    
     NSMutableArray *imageArr = [NSMutableArray array];
     
-    for (int i = 0; i < self.bannerImageUrlArr.count; i++) {
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
-        [manager GET:self.bannerImageUrlArr[i] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+       
+        for (int i = 0; i < bannersArr.count; i++) {
+            YJGiftBanner *giftBanner = bannersArr[i];
             
             UIImageView *imageView = [[UIImageView alloc]init];
-            imageView.image = [UIImage imageWithData:responseObject];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:giftBanner.image_url]];
+            
             [imageArr addObject:imageView];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
             
-            if (imageArr.count == self.bannerImageUrlArr.count) {
-                autoSV.imageViewAry = imageArr;
-                [self.scrollView addSubview:autoSV];
-                [autoSV shouldAutoShow:YES];
-            }
-            
-        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-            NSLog(@"请求数据失败");
-        }];
-    }
-}
-- (void)awakeFromNib {
-   
+            autoSV.imageViewAry = imageArr;
+            [self.scrollView addSubview:autoSV];
+            [autoSV shouldAutoShow:YES];
+        });
+        
+    });
 }
 
-#pragma mark 当前控制器消失时取消定时器
-- (void)viewDidDisappear:(BOOL)animated{
-    [self.autoSV shouldAutoShow:NO];
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [self.autoSV shouldAutoShow:YES];
-}
 #pragma mark 获取promotion图片地址和标题
-- (void)getPromotionsImageUrlAFNetwork{
-
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager GET:@"http://api.liwushuo.com/v2/promotions?gender=1&generation=1" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        self.promotionArr = responseObject[@"data"][@"promotions"];
+- (void)getPromotionsUrlAFNetwork{
+    
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [self.manager GET:YJPromotionUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSArray *promotionArr = [YJGiftPromotion mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"promotions"]];
         
-        for (int i = 0; i < self.promotionArr.count; i++) {
-            [self.promotionImageUrlArr addObject:self.promotionArr[i][@"icon_url"]];
-            [self.promotionTitleArr addObject:self.promotionArr[i][@"title"]];
-            [self.prmotionTitleColorArr addObject:self.promotionArr[i][@"color"]];
-        }
-        
-        if (self.promotionTitleArr.count == self.promotionArr.count && self.promotionImageUrlArr.count == self.promotionArr.count) {
-            
-            [self getPromotionsImageDataAFNetwork];
-        }
+        //设置promotion
+        [self setupPromotion:promotionArr];
+      
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
     }];
 }
-
-- (void)getPromotionsImageDataAFNetwork{
-
-    NSMutableArray *dataArr = [NSMutableArray array];
-    for (int i = 0; i < self.promotionImageUrlArr.count; i++) {
+#pragma mark -设置promotion
+- (void)setupPromotion:(NSArray *)promotionArr{
+    
+    for (int i = 0; i < promotionArr.count; i++) {
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [manager GET:self.promotionImageUrlArr[i] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-            [dataArr addObject:responseObject];
+        //取出promotionBtn对应的模型数据
+        YJGiftPromotion *giftPromotion = promotionArr[i];
+        YJQuickLoginButton *btn = self.promotionView.subviews[i];
+        
+        //设置图片
+        [btn sd_setImageWithURL:[NSURL URLWithString:giftPromotion.icon_url] forState:(UIControlStateNormal) placeholderImage:[UIImage imageNamed:@"HomePagePlaceHolder"]];
+        
+        //设置文字
+        NSMutableDictionary *titleDict = [NSMutableDictionary dictionary];
+        titleDict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+        titleDict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:giftPromotion.color];
+        NSAttributedString *attString = [[NSAttributedString alloc]initWithString:giftPromotion.title attributes:titleDict];
+        
+        [btn setAttributedTitle:attString forState:(UIControlStateNormal)];
 
-            if (dataArr.count == self.promotionImageUrlArr.count) {
-                self.promotionDataArr = dataArr;
-         
-                [self setUpPromotionBtn];
-            }
-            
-        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-            
-        }];
     }
 }
 
-- (void)setUpPromotionBtn{
-    
-    static int i = 0;
-        for (YJQuickLoginButton *btn in self.promotionView.subviews) {
-            
-            UIImage *image = [UIImage imageWithData:self.promotionDataArr[i]];
-            image = [UIImage OriginImage:image scaleToSize:CGSizeMake(40, 40)];
-            [btn setImage:image forState:(UIControlStateNormal)];
-            
-            NSMutableDictionary *titleDict = [NSMutableDictionary dictionary];
-            titleDict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
-            titleDict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:self.prmotionTitleColorArr[i]];
-            NSAttributedString *attString = [[NSAttributedString alloc]initWithString:self.promotionTitleArr[i] attributes:titleDict];
-            [btn setAttributedTitle:attString forState:(UIControlStateNormal)];
-            
-            i++;
-        }
-}
 
 + (NSString *)ID{
+    
     return @"autoCell";
 }
 
 + (YJAutoCell *)autoCell{
     return [[NSBundle mainBundle]loadNibNamed:@"YJAutoCell" owner:nil options:nil][0];
 }
-
+- (CGFloat)cellHeight{
+    return CGRectGetMaxY(self.promotionView.frame);
+}
 @end

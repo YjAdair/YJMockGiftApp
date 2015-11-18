@@ -7,7 +7,7 @@
 //
 
 #import "YJQuickLoginButton.h"
-
+#import "UIImage+YJImage.h"
 @implementation YJQuickLoginButton
 - (void)awakeFromNib
 {
@@ -20,6 +20,8 @@
     
     // 调整图片的位置和尺寸
     self.imageView.yj_y = 10;
+    self.imageView.yj_width = 40;
+    self.imageView.yj_height = 40;
     self.imageView.yj_centerX = self.yj_width * 0.5;
     
     // 调整文字的位置和尺寸

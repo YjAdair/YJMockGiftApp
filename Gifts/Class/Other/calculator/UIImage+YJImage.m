@@ -28,4 +28,5 @@
     
     return scaledImage;   //返回的就是已经改变的图片
 }
+
 @end
