@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="xRW-6g-vyk" customClass="YJHotGiftDetailView">
-            <rect key="frame" x="0.0" y="0.0" width="306" height="335"/>
+            <rect key="frame" x="0.0" y="0.0" width="306" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-ev-Zll">
@@ -73,7 +73,7 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwm-Xh-X4e">
-                    <rect key="frame" x="0.0" y="50" width="306" height="285"/>
+                    <rect key="frame" x="0.0" y="50" width="306" height="450"/>
                     <animations/>
                 </scrollView>
             </subviews>

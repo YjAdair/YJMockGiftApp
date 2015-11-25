@@ -12,4 +12,6 @@
 
 /*<#name#>*/
 @property (strong, nonatomic) NSString *pictureHtmlDetailUrl;
+/*<#name#>*/
+@property (strong, nonatomic) NSString *commentUrl;
 @end

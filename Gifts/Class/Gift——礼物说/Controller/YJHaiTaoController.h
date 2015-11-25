@@ -6,8 +6,9 @@
 //  Copyright © 2015年 yjadair. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YJBaseViewController.h"
 
-@interface YJHaiTaoController : UITableViewController
+@interface YJHaiTaoController : YJBaseViewController
+
 
 @end

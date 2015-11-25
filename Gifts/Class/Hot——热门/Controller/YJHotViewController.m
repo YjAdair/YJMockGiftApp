@@ -10,6 +10,7 @@
 #import "YJHotCell.h"
 #import "YJHotDetail.h"
 #import "YJHotGiftDetailController.h"
+#import "YJRefreshHeader.h"
 #define YJHotUrl @"http://api.liwushuo.com/v2/items?gender=1&generation=1&limit=50&offset=0"
 #define XMGWeakSelf __weak typeof(self) weakSelf = self;
 
@@ -43,17 +44,17 @@ static NSString *ID = @"hotCell";
 }
 
 - (instancetype)init{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     if (self = [super init]) {
         CGFloat itemEdge = 10;
         CGFloat itemW = ([UIScreen mainScreen].bounds.size.width - 3 * itemEdge) / 2;
         CGFloat itemH = 230;
         layout.itemSize = CGSizeMake(itemW, itemH);
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
-        layout.minimumLineSpacing = 10;
-        layout.minimumInteritemSpacing = 10;
+        layout.sectionInset = UIEdgeInsetsMake(itemEdge, itemEdge, 0, itemEdge);
+        layout.minimumLineSpacing = itemEdge;
+        layout.minimumInteritemSpacing = itemEdge;
     }
 
     return [self initWithCollectionViewLayout:layout];
@@ -79,6 +80,7 @@ static NSString *ID = @"hotCell";
     [self.navigationItem setTitleView:[UILabel labelWithSize:20 TitleColor:[UIColor whiteColor] Title:@"热门"]];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithNorImage:[UIImage imageNamed:@"Feed_SearchBtn"] Target:self Action:@selector(search)];
 }
+
 - (void)setCollectionView{
     self.collectionView.backgroundColor = [UIColor colorWithRed:239 / 255.0 green:239 / 255.0  blue:239 / 255.0 alpha:1.0];
 
@@ -94,8 +96,6 @@ static NSString *ID = @"hotCell";
     // 下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     
-    // 自动改变透明度
-    self.collectionView.mj_header.automaticallyChangeAlpha = YES;
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
     
@@ -167,6 +167,7 @@ static NSString *ID = @"hotCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     YJHotDetail *hotDetail = self.hotDetailArr[indexPath.row];
     YJHotGiftDetailController *giftDetailController = [[YJHotGiftDetailController alloc]init];
+    giftDetailController.hidesBottomBarWhenPushed = YES;
     giftDetailController.giftDetailID = hotDetail.ID;
     [self.navigationController pushViewController:giftDetailController animated:YES];
 }

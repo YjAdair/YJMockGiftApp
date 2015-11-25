@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJCellController">
             <connections>
                 <outlet property="commentBtn" destination="KAx-iY-QCO" id="jhn-oi-d5A"/>
+                <outlet property="envolpe" destination="q4B-d7-kRY" id="nNC-sq-ANb"/>
                 <outlet property="headConstraint" destination="DZc-Sm-9lk" id="p7U-Kx-ZPR"/>
                 <outlet property="headImageView" destination="dwK-ki-SSN" id="F3r-r3-x76"/>
                 <outlet property="headLabel" destination="nwx-1g-qTM" id="uvT-Qo-srB"/>
@@ -60,7 +61,7 @@
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgH-sp-3ci">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </webView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4K-U4-ePj" userLabel="头部视图">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -93,25 +94,40 @@
                         <constraint firstItem="dwK-ki-SSN" firstAttribute="leading" secondItem="Y4K-U4-ePj" secondAttribute="leading" id="kA7-Kb-X5a"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4B-d7-kRY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Zrt-Na-zvw" secondAttribute="trailing" id="3vP-6O-sTr"/>
                 <constraint firstItem="6pn-FS-0DB" firstAttribute="top" secondItem="QgH-sp-3ci" secondAttribute="bottom" id="4yi-bA-YSp"/>
+                <constraint firstItem="q4B-d7-kRY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bic-rK-J7w"/>
                 <constraint firstAttribute="bottom" secondItem="6pn-FS-0DB" secondAttribute="bottom" id="BkX-ha-zHA"/>
                 <constraint firstAttribute="bottom" secondItem="Zrt-Na-zvw" secondAttribute="bottom" constant="-70" id="DFl-Lm-lxa"/>
+                <constraint firstItem="q4B-d7-kRY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K0t-hb-BYL"/>
+                <constraint firstAttribute="trailing" secondItem="q4B-d7-kRY" secondAttribute="trailing" id="Tkb-8y-mmi"/>
                 <constraint firstAttribute="trailing" secondItem="Y4K-U4-ePj" secondAttribute="trailing" id="atB-ah-sGH"/>
                 <constraint firstAttribute="trailing" secondItem="6pn-FS-0DB" secondAttribute="trailing" id="bIV-AA-6N5"/>
                 <constraint firstAttribute="trailing" secondItem="QgH-sp-3ci" secondAttribute="trailing" id="fp8-3h-kF8"/>
+                <constraint firstItem="6pn-FS-0DB" firstAttribute="top" secondItem="q4B-d7-kRY" secondAttribute="bottom" id="fud-7W-IbK"/>
                 <constraint firstItem="QgH-sp-3ci" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="l8b-KL-Bl0"/>
                 <constraint firstItem="QgH-sp-3ci" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nrP-XE-M2z"/>
                 <constraint firstItem="Y4K-U4-ePj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oAU-VK-O4q"/>
+                <constraint firstAttribute="bottom" secondItem="q4B-d7-kRY" secondAttribute="bottom" id="qHR-NS-NJL"/>
                 <constraint firstItem="6pn-FS-0DB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="waC-d4-zRR"/>
                 <constraint firstItem="Zrt-Na-zvw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x7Y-To-kOA"/>
                 <constraint firstItem="Y4K-U4-ePj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zER-e5-rLK"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="fud-7W-IbK"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="404.5" y="85.5"/>
         </view>
     </objects>

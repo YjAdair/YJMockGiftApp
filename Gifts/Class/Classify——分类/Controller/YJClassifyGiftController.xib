@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJClassifyGiftController">
+            <connections>
+                <outlet property="finderScrollView" destination="v8I-pj-YYa" id="DgX-H7-H2X"/>
+                <outlet property="godSelect" destination="rWx-tQ-C68" id="K3M-os-ZBo"/>
+                <outlet property="subCategoryScrollView" destination="AaY-oa-KfA" id="ZSQ-kx-IEf"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Vhs-84-ohm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWx-tQ-C68">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                    <subviews>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdE-hh-uqB">
+                            <rect key="frame" x="10" y="10" width="64" height="15"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="选礼神器">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="CTE-5n-OA5">
+                            <rect key="frame" x="575" y="10" width="15" height="15"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="Q8S-wv-DUj"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="CTE-5n-OA5" firstAttribute="top" secondItem="rWx-tQ-C68" secondAttribute="top" constant="10" id="45c-Ya-h2B"/>
+                        <constraint firstAttribute="height" constant="35" id="KWt-xN-lJT"/>
+                        <constraint firstAttribute="bottom" secondItem="CTE-5n-OA5" secondAttribute="bottom" constant="10" id="OCZ-VI-HjR"/>
+                        <constraint firstItem="VdE-hh-uqB" firstAttribute="top" secondItem="rWx-tQ-C68" secondAttribute="top" constant="10" id="Vw2-bs-oPe"/>
+                        <constraint firstAttribute="trailing" secondItem="CTE-5n-OA5" secondAttribute="trailing" constant="10" id="cjQ-nr-yac"/>
+                        <constraint firstAttribute="bottom" secondItem="VdE-hh-uqB" secondAttribute="bottom" constant="10" id="gar-hJ-Sog"/>
+                        <constraint firstItem="VdE-hh-uqB" firstAttribute="leading" secondItem="rWx-tQ-C68" secondAttribute="leading" constant="10" id="qXF-fu-PRW"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8I-pj-YYa">
+                    <rect key="frame" x="0.0" y="35" width="100" height="565"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="xkI-lK-ZCS"/>
+                    </constraints>
+                </scrollView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaY-oa-KfA">
+                    <rect key="frame" x="100" y="35" width="500" height="565"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </scrollView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AaY-oa-KfA" firstAttribute="top" secondItem="rWx-tQ-C68" secondAttribute="bottom" id="1So-iF-rN7"/>
+                <constraint firstAttribute="trailing" secondItem="AaY-oa-KfA" secondAttribute="trailing" id="BcN-Q8-SxR"/>
+                <constraint firstAttribute="trailing" secondItem="rWx-tQ-C68" secondAttribute="trailing" id="Gm9-nf-hcr"/>
+                <constraint firstItem="v8I-pj-YYa" firstAttribute="top" secondItem="rWx-tQ-C68" secondAttribute="bottom" id="KS8-Pe-jnD"/>
+                <constraint firstAttribute="bottom" secondItem="AaY-oa-KfA" secondAttribute="bottom" id="W9V-NK-Ab3"/>
+                <constraint firstItem="v8I-pj-YYa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bMv-Qq-5e5"/>
+                <constraint firstItem="rWx-tQ-C68" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fXs-TU-Ip6"/>
+                <constraint firstAttribute="bottom" secondItem="v8I-pj-YYa" secondAttribute="bottom" id="i9M-ba-j8m"/>
+                <constraint firstItem="rWx-tQ-C68" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nMw-Kw-fyH"/>
+                <constraint firstItem="AaY-oa-KfA" firstAttribute="leading" secondItem="v8I-pj-YYa" secondAttribute="trailing" id="uBw-2N-6ei"/>
+            </constraints>
+            <point key="canvasLocation" x="218" y="294"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_icon_arrow" width="12" height="12"/>
+    </resources>
+</document>

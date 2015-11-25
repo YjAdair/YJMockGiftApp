@@ -10,55 +10,50 @@
 #import "YJHotAutoCell.h"
 #import "YJHotGiftComment.h"
 #import "YJHotGiftDetailView.h"
-@interface YJHotGiftDetailController ()<YJHotAutoCellDelegate>
+@interface YJHotGiftDetailController ()<YJHotAutoCellDelegate, UITableViewDataSource,UITableViewDelegate, UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *contentTableView;
+
 /*<#name#>*/
-@property (weak, nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) NSURL *url;
 @end
 
 @implementation YJHotGiftDetailController
-- (AFHTTPRequestOperationManager *)manager{
-    if (!_manager) {
-        _manager = [AFHTTPRequestOperationManager manager];
-    }
-    return _manager;
-}
 
-- (instancetype)init{
-    return [self initWithStyle:(UITableViewStyleGrouped)];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.contentTableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"YJHotAutoCell" bundle:nil] forCellReuseIdentifier:[YJHotAutoCell ID]];
     
-    [self.manager GET:@"http://api.liwushuo.com/v2/items/1041675/comments?limit=20&offset=0" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSMutableArray *commentArr = [NSMutableArray array];
-        NSArray *tempCommtentArr = responseObject[@"data"][@"comments"];
-        for (int i = 0; i < tempCommtentArr.count; i++) {
-            YJHotGiftComment *comment = [YJHotGiftComment mj_objectWithKeyValues:tempCommtentArr[i]];
-            [commentArr addObject:comment];
-        }
+    [self setupFooterView];
     
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
-    }];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"YJHotAutoCell" bundle:nil] forCellReuseIdentifier:[YJHotAutoCell ID]];
-    
-    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageOriginImage:@"back.png"] Target:self Action:@selector(goBackToGiftView) Title:@"热门 "];
+
+}
+
+- (void)goBackToGiftView{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setupFooterView{
+
     YJHotGiftDetailView *hotGiftDetailView = [[NSBundle mainBundle]loadNibNamed:@"YJHotGiftDetailView" owner:nil options:nil][0];
+    
     hotGiftDetailView.frame = self.view.bounds;
     hotGiftDetailView.pictureHtmlDetailUrl = [NSString stringWithFormat:@"http://api.liwushuo.com/v2/items/%@?", self.giftDetailID];
-   
-    self.tableView.tableFooterView = hotGiftDetailView;
+    hotGiftDetailView.commentUrl = [NSString stringWithFormat:@"http://api.liwushuo.com/v2/items/%@/comments?limit=20&offset=0", self.giftDetailID];
+    
+    self.contentTableView.tableFooterView = hotGiftDetailView;
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
         YJHotAutoCell * cell = [tableView dequeueReusableCellWithIdentifier:[YJHotAutoCell ID]];
         cell.delegate = self;
         cell.hotGiftItemUrl = [NSString stringWithFormat:@"http://api.liwushuo.com/v2/items/%@?", self.giftDetailID];
@@ -71,6 +66,41 @@
     return hotAutoCell.cellHeight;
 }
 - (void)hotAutoCell:(YJHotAutoCell *)hotAutoCell{
-    [self.tableView reloadData];
+
+    [self.contentTableView reloadData];
+}
+
+- (IBAction)jump:(id)sender {
+    
+    NSString *itemId = @"524041453644";
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"taobao://item.taobao.com/item.htm?id=%@", itemId]];
+    self.url = url;
+    // 判断当前系统是否有安装淘宝客户端
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"是否打开‘淘宝’" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"打开", nil];
+        alert.delegate = self;
+        [alert show];
+        // 如果已经安装淘宝客户端，就使用客户端打开链接
+        
+        
+    } else {
+        // 否则使用 Mobile Safari 或者内嵌 WebView 来显示
+        
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://item.taobao.com/item.htm?id=%@", itemId ]];
+        
+        [[UIApplication sharedApplication] openURL:url];
+        NSLog(@"打开safari");
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:self.url];
+        NSLog(@"打开淘宝客户端");
+
+    }
 }
 @end

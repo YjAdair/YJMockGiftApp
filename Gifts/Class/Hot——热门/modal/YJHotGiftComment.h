@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "YJHotGiftUser.h"
+#import "YJRepliedUser.h"
 @interface YJHotGiftComment : NSObject
 /*<#name#>*/
 @property (strong, nonatomic) YJHotGiftUser *user;
 /*<#name#>*/
 @property (strong, nonatomic) NSString *content;
+/*<#name#>*/
+@property (strong, nonatomic) YJRepliedUser *replied_user;
 @end

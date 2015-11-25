@@ -23,12 +23,13 @@
     self.imageView.yj_width = 40;
     self.imageView.yj_height = 40;
     self.imageView.yj_centerX = self.yj_width * 0.5;
-    
+
     // 调整文字的位置和尺寸
     self.titleLabel.yj_x = 0;
     self.titleLabel.yj_y = self.imageView.yj_height;
     self.titleLabel.yj_width = self.yj_width;
     self.titleLabel.yj_height = self.yj_height - self.titleLabel.yj_y;
+
 }
 
 @end

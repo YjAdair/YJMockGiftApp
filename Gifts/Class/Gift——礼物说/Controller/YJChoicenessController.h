@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YJSliderTitle.h"
 @interface YJChoicenessController : UITableViewController
 
+/*<#name#>*/
+@property (strong, nonatomic) YJSliderTitle *sliderTitle;
 @end

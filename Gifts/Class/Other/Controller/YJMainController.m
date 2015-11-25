@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setTabBarItemTitle];
     [self addOneViewController];
 
@@ -58,6 +59,7 @@
     if ([VC isKindOfClass:[YJMeViewController class]]) {
         nav = [[YJMeNavController alloc]initWithRootViewController:VC];
     }
+    
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = normalImage;
     nav.tabBarItem.selectedImage = selectImage;

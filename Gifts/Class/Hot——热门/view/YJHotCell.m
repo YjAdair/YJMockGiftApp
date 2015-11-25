@@ -33,7 +33,7 @@
 - (void)setHotDetail:(YJHotDetail *)hotDetail{
     _hotDetail = hotDetail;
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:hotDetail.cover_image_url]placeholderImage:[UIImage imageNamed:@"PlaceHolderImage_small"]];
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:hotDetail.cover_image_url]placeholderImage:[UIImage OriginImage:[UIImage imageNamed:@"PlaceHolderImage_small"] scaleToSize:CGSizeMake(20, 20)]];
     
     self.title.text = hotDetail.name;
     

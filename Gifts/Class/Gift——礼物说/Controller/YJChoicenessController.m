@@ -7,33 +7,26 @@
 //
 
 #import "YJChoicenessController.h"
-#import "YJAutoScrollerView.h"
-#import "YJQuickLoginButton.h"
 #import "YJChoicenRowItem.h"
 #import "YJChoicensCell.h"
 #import "YJCellController.h"
-
 #import "YJAutoCell.h"
-#import "YJGiftBanner.h"
-#import "YJGiftCellDetail.h"
-#define kCount 4
+
 #define YJCellDetail  @"http://api.liwushuo.com/v2/channels/100/items?ad=1&gender=1&generation=1&limit=20&offset=0"
 // 弱引用
 #define XMGWeakSelf __weak typeof(self) weakSelf = self;
+
 @interface YJChoicenessController()<UITableViewDataSource, UITableViewDelegate>
+
 /** 请求管理者 */
 @property (nonatomic, weak) AFHTTPSessionManager *manager;
-
-/*<#name#>*/
-@property (strong, nonatomic) NSMutableArray *cellContentUrlArr;
-/*<#name#>*/
+/*精选cell的like数量数组*/
 @property (strong, nonatomic) NSMutableArray *cellLikeCountArr;
-
-/*<#name#>*/
+/*精选cell模型数组*/
 @property (strong, nonatomic) NSMutableArray *giftCellDetailArr;
-
-/*<#name#>*/
+/*上拉刷新——精选cell下批模型数组*/
 @property (strong, nonatomic) NSString *giftNextCellDetailUrl;
+
 @end
 @implementation YJChoicenessController
 
@@ -42,13 +35,6 @@
         _giftCellDetailArr = [NSMutableArray array];
     }
     return _giftCellDetailArr;
-}
-
-- (NSMutableArray *)cellContentUrlArr{
-    if (!_cellContentUrlArr) {
-        _cellContentUrlArr = [NSMutableArray array];
-    }
-    return _cellContentUrlArr;
 }
 - (NSMutableArray *)cellLikeCountArr{
     if (!_cellLikeCountArr) {
@@ -63,9 +49,11 @@
     return _manager;
 }
 
+#pragma mark -设置tableView的类型
 - (instancetype)init{
     return [self initWithStyle:(UITableViewStyleGrouped)];
 }
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.tableView.sectionHeaderHeight = 0;
@@ -74,7 +62,7 @@
 }
 #pragma mark -上下刷新
 - (void)setupRefresh{
-    
+
     // 下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     
@@ -85,7 +73,8 @@
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
-//下拉刷新
+
+#pragma mark -下拉刷新
 - (void)loadNewTopics{
     
     // 取消之前的所有请求
@@ -113,9 +102,8 @@
         [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
-/**
- * 加载更多的帖子数据
- */
+
+#pragma mark -上拉刷新
 - (void)loadMoreTopics{
     
     // 取消之前的所有请求
@@ -126,7 +114,9 @@
     [self.manager GET:self.giftNextCellDetailUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray *ItemsData = responseObject[@"data"][@"items"];
+        
         weakSelf.giftNextCellDetailUrl = responseObject[@"data"][@"paging"][@"next_url"];
+        
         for (int i = 0; i < ItemsData.count; i++) {
             
             YJGiftCellDetail *cellDetail = [YJGiftCellDetail mj_objectWithKeyValues:ItemsData[i]];
@@ -142,6 +132,7 @@
     }];
 }
 
+#pragma makr -UITableViewDataSoure
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
@@ -174,6 +165,7 @@
     }
    
 }
+#pragma mark -UITableViewDelegate
 #pragma mark 设置cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
     if (indexPat.section == 0) {
@@ -186,8 +178,10 @@
 }
 #pragma mark -选择cell时调用
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    YJGiftCellDetail *cellDetail = self.giftCellDetailArr[indexPath.row];
     
+    YJGiftCellDetail *cellDetail = self.giftCellDetailArr[indexPath.row];
+   
+    //Push cell详情控制器
     YJCellController *cellController = [[YJCellController alloc] init];
     cellController.giftCellDetail = cellDetail;
     cellController.hidesBottomBarWhenPushed = YES;

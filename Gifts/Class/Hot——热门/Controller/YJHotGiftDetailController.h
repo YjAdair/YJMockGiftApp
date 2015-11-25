@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YJHotGiftDetailController : UITableViewController
+@interface YJHotGiftDetailController : UIViewController
 
 /*热门Item详情地址ID*/
 @property (strong, nonatomic) NSString *giftDetailID;

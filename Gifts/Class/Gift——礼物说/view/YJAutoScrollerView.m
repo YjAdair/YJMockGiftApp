@@ -38,7 +38,7 @@
         _scrollView.contentSize = CGSizeMake(_viewWidth * 3, _viewHeight);
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;
-        _scrollView.backgroundColor = [UIColor blackColor];
+        _scrollView.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:_scrollView];
     }
     return self;
@@ -47,12 +47,23 @@
 #pragma mark 设置imageViewAry
 -(void)setImageViewAry:(NSMutableArray *)imageViewAry
 {
-    if (imageViewAry) {
+    if (imageViewAry.count >= 3) {
         _imageViewAry = imageViewAry;
         _currentPage = 0; //默认为第0页
+        //显示图片
+        [self reloadData];
+    }else if (imageViewAry.count < 3){
+        
+        [_scrollView removeFromSuperview];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _viewWidth, _viewHeight)];
+        view.backgroundColor = [UIColor redColor];
+        [self addSubview:_scrollView];
+        _middleView = [_imageViewAry firstObject];
+        _middleView.frame = CGRectMake(0, 0, _viewWidth, _viewHeight);
+        [view addSubview:_middleView];
+        
     }
-    //显示图片
-    [self reloadData];
+    
 }
 
 #pragma mark 刷新view页面——显示图片

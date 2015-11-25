@@ -16,9 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:(UIBarMetricsDefault)];
-    
-    
 }
 
 

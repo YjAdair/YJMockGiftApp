@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tabBarHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redViewBottom;
+@property (weak, nonatomic) IBOutlet UIView *envolpe;
 
 @end
 
@@ -31,28 +32,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
     self.navigationItem.title = @"攻略详情";
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageOriginImage:@"back.png"] Target:self Action:@selector(goBackToGiftView) Title:@"礼物说"];
+    [SVProgressHUD setBackgroundColor:[UIColor lightGrayColor]];
+    [SVProgressHUD show];
     
-    self.webView.scrollView.delegate = self;
-    self.webView.delegate = self;
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.giftCellDetail.cover_image_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+
+        self.headImageView.hidden = YES;
+        self.headLabel.hidden = YES;
+        self.likeBtn.hidden = YES;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
-    NSURL *url = [NSURL URLWithString:self.giftCellDetail.content_url];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
-    [self.webView loadRequest:request];
+            self.webView.scrollView.delegate = self;
+            self.webView.delegate = self;
+            NSURL *url = [NSURL URLWithString:self.giftCellDetail.content_url];
+            NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
+            [self.webView loadRequest:request];
+            
+        });
+        
+        self.headLabel.text = self.giftCellDetail.title;
+        [self.likeBtn setBtnWithNorImage:[UIImage imageOriginImage:@"content-details_like"] SelImage:[UIImage imageOriginImage:@"content-details_like_selected"] TitleColor:[UIColor grayColor] Title:[NSString stringWithFormat:@"%d", self.giftCellDetail.likes_count]];
     
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.giftCellDetail.cover_image_url]];
-    self.headLabel.text = self.giftCellDetail.title;
-    [self.likeBtn setBtnWithNorImage:[UIImage imageOriginImage:@"content-details_like"] SelImage:[UIImage imageOriginImage:@"content-details_like_selected"] TitleColor:[UIColor grayColor] Title:[NSString stringWithFormat:@"%d", self.giftCellDetail.likes_count]];
+           }];
+  
 }
 //webView加载完毕后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+
+    self.envolpe.hidden = YES;
+    [SVProgressHUD dismiss];
     //获得weiView的实际内容高度
-    NSString  *htmlHeight = [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"];
-    NSLog(@"%@", htmlHeight);
+//    NSString  *htmlHeight = [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"];
+
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    
+    self.headLabel.hidden = NO;
+    self.likeBtn.hidden = NO;
+    self.headImageView.hidden = NO;
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat offset = scrollView.contentOffset.y;
@@ -62,6 +87,8 @@
     self.headConstraint.constant = - offset;
 }
 - (void)goBackToGiftView{
+    
+    [SVProgressHUD dismiss];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -23,7 +23,10 @@
     return _preIndexPathArr;
 }
 - (void)setCellDetail:(YJGiftCellDetail *)cellDetail{
+    
     _cellDetail = cellDetail;
+    self.backgroundColor = [UIColor lightGrayColor];
+    
     self.title.text = cellDetail.title;
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     

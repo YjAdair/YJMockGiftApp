@@ -19,6 +19,7 @@
 #import "NSObject+Property.h"
 #import "MJExtension.h"
 #import "MJRefresh.h"
+#import <SVProgressHUD.h>
 #define YJNslogFunc NSLog(@"%s", __func__);
 #define YJScreenW [UIScreen mainScreen].bounds.size.width
 #define YJScreenH [UIScreen mainScreen].bounds.size.height

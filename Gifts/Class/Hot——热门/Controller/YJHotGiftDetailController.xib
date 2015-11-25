@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YJHotGiftDetailController">
+            <connections>
+                <outlet property="contentTableView" destination="jjw-Wb-TDa" id="MVN-j4-YUp"/>
+                <outlet property="view" destination="sve-4V-ac6" id="xqn-vI-a9T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="sve-4V-ac6">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPx-e5-7e2">
+                    <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6B-CV-0Yx">
+                            <rect key="frame" x="300" y="0.0" width="300" height="49"/>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="去淘宝购买"/>
+                            <connections>
+                                <action selector="jump:" destination="-1" eventType="touchUpInside" id="yer-ni-MtR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erP-bj-7sP">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="49"/>
+                            <animations/>
+                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="喜欢">
+                                <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.83053691279999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="M6B-CV-0Yx" secondAttribute="bottom" id="4rJ-e8-wLn"/>
+                        <constraint firstItem="erP-bj-7sP" firstAttribute="leading" secondItem="EPx-e5-7e2" secondAttribute="leading" id="6JW-sg-dmc"/>
+                        <constraint firstItem="erP-bj-7sP" firstAttribute="top" secondItem="EPx-e5-7e2" secondAttribute="top" id="BEE-nn-mAA"/>
+                        <constraint firstAttribute="bottom" secondItem="erP-bj-7sP" secondAttribute="bottom" id="Juh-T3-are"/>
+                        <constraint firstItem="M6B-CV-0Yx" firstAttribute="width" secondItem="erP-bj-7sP" secondAttribute="width" id="ai0-Lf-nlC"/>
+                        <constraint firstAttribute="trailing" secondItem="M6B-CV-0Yx" secondAttribute="trailing" id="fR9-6f-Di3"/>
+                        <constraint firstItem="M6B-CV-0Yx" firstAttribute="leading" secondItem="erP-bj-7sP" secondAttribute="trailing" id="iIh-hl-s29"/>
+                        <constraint firstAttribute="height" constant="49" id="ncO-Ym-tPm"/>
+                        <constraint firstItem="M6B-CV-0Yx" firstAttribute="top" secondItem="EPx-e5-7e2" secondAttribute="top" id="pr6-W4-OQ6"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Wb-TDa">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Un2-iZ-1Kp"/>
+                        <outlet property="delegate" destination="-1" id="pj6-LY-3fp"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="jjw-Wb-TDa" secondAttribute="trailing" id="NxP-PP-wOO"/>
+                <constraint firstAttribute="bottom" secondItem="EPx-e5-7e2" secondAttribute="bottom" id="Rba-0N-09h"/>
+                <constraint firstItem="jjw-Wb-TDa" firstAttribute="top" secondItem="sve-4V-ac6" secondAttribute="top" id="XXI-ts-4ml"/>
+                <constraint firstItem="jjw-Wb-TDa" firstAttribute="leading" secondItem="sve-4V-ac6" secondAttribute="leading" id="lTm-D3-lEv"/>
+                <constraint firstItem="EPx-e5-7e2" firstAttribute="leading" secondItem="sve-4V-ac6" secondAttribute="leading" id="mSe-NT-WY3"/>
+                <constraint firstAttribute="trailing" secondItem="EPx-e5-7e2" secondAttribute="trailing" id="oDg-ex-PZL"/>
+                <constraint firstItem="EPx-e5-7e2" firstAttribute="top" secondItem="jjw-Wb-TDa" secondAttribute="bottom" id="pQd-nX-oec"/>
+            </constraints>
+            <point key="canvasLocation" x="-101" y="431"/>
+        </view>
+    </objects>
+</document>

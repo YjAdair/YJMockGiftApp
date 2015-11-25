@@ -25,12 +25,12 @@
 /*广告信息*/
 @property (strong, nonatomic) NSMutableArray *giftBannersArr;
 /*网络请求管理者*/
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
 @end
 @implementation YJHotAutoCell
-- (AFHTTPRequestOperationManager *)manager{
+- (AFHTTPSessionManager *)manager{
     if (!_manager) {
-        _manager = [AFHTTPRequestOperationManager manager];
+        _manager = [AFHTTPSessionManager manager];
     }
     return _manager;
 }
@@ -40,26 +40,10 @@
     }
     return _giftBannersArr;
 }
-//- (void)awakeFromNib{
-//    [YJHotGiftDetail mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-//        return @{
-//                 @"descriptions" : @"description"
-//                 };
-//    }];
-//    
-//    [self.manager GET:@"http://api.liwushuo.com/v2/items/1041675?" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-//        
-//        YJHotGiftDetail *hotGiftDetail = [YJHotGiftDetail mj_objectWithKeyValues:responseObject[@"data"]];
-//        
-//        [self addAuto:hotGiftDetail];
-//        
-//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-//        NSLog(@"请求失败");
-//    }];
-////    NSLog(@"%@", self.hotGiftItemUrl);
-//}
+
 #pragma mark 获取content信息
 - (void)setHotGiftItemUrl:(NSString *)hotGiftItemUrl{
+    
     _hotGiftItemUrl = hotGiftItemUrl;
     
     [YJHotGiftDetail mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -68,21 +52,20 @@
                  };
     }];
   
-    [self.manager GET:hotGiftItemUrl parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    [self.manager GET:hotGiftItemUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         YJHotGiftDetail *hotGiftDetail = [YJHotGiftDetail mj_objectWithKeyValues:responseObject[@"data"]];
         
         [self addAuto:hotGiftDetail];
-      
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          NSLog(@"请求失败");
     }];
 
 }
 
 #pragma mark 设置广告
 - (void)addAuto:(YJHotGiftDetail *)hotGiftDetail{
-    
+
     YJAutoScrollerView *autoSV = [[YJAutoScrollerView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     self.autoSV = autoSV;
 
@@ -100,13 +83,17 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+
             autoSV.imageViewAry = imageArr;
             [self.scrollView addSubview:autoSV];
             [autoSV shouldAutoShow:YES];
-            if ([self.delegate respondsToSelector:@selector(hotAutoCell:)]) {
-                [self.delegate hotAutoCell:self];
-            }
+            
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                if ([self.delegate respondsToSelector:@selector(hotAutoCell:)]) {
+                    [self.delegate hotAutoCell:self];
+                }
+            });
         });
         
     });
