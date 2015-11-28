@@ -8,14 +8,19 @@
 
 #import "YJChoicensCell.h"
 #import <UIImageView+WebCache.h>
+#import "NSString+YJExpansion.h"
 @interface YJChoicensCell()
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 /*<#name#>*/
 @property (strong, nonatomic) NSMutableArray *preIndexPathArr;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIView *showTime;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cellImageTopConstraint;
 
 @end
 @implementation YJChoicensCell
+
 - (NSMutableArray *)preIndexPathArr{
     if (!_preIndexPathArr) {
         _preIndexPathArr = [NSMutableArray array];
@@ -25,7 +30,14 @@
 - (void)setCellDetail:(YJGiftCellDetail *)cellDetail{
     
     _cellDetail = cellDetail;
-    self.backgroundColor = [UIColor lightGrayColor];
+    NSLog(@"%d", cellDetail.isShowTime);
+    if (!cellDetail.isShowTime) {
+        self.cellImageTopConstraint.constant -= 20;
+        self.showTime.hidden = YES;
+    }
+    
+    NSString *publishDate = [NSString weekdayStringFromDate:cellDetail.published_at];
+    self.timeLabel.text = publishDate;
     
     self.title.text = cellDetail.title;
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -43,6 +55,7 @@
     btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
+    
     [self.cellImage sd_setImageWithURL:[NSURL URLWithString:cellDetail.cover_image_url   ] placeholderImage:[UIImage imageNamed:@"PlaceHolderImage_Big"]];
     
     [self.cellImage addSubview:btn];

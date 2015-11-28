@@ -47,6 +47,7 @@
     [self getClassifyChannelsInfo];
 }
 - (void)setupTableView{
+    
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = 10;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -89,6 +90,7 @@
       
         return specialCell;
     }else{
+        
         YJClassifyStrategyCell *strategyCell = [tableView dequeueReusableCellWithIdentifier:[YJClassifyStrategyCell ID]];
         YJStrategy *strategy = self.strategyArr[indexPath.row];
         strategyCell.strategy = strategy;

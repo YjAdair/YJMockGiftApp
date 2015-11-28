@@ -23,5 +23,9 @@
 @property (nonatomic, strong) NSString *title;
 
 @property (nonatomic, strong) NSString *url;
+/*发布时间*/
+@property (strong, nonatomic) NSString *published_at;
 
+/*<#name#>*/
+@property (assign, nonatomic) BOOL isShowTime;
 @end

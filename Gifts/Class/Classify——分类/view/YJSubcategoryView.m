@@ -13,6 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
 
+//        UILabel *label = [[UILabel alloc]init];
+        
     }
     return self;
 }

@@ -15,7 +15,7 @@
 
 /*<#name#>*/
 @property (strong, nonatomic) YJGiftCellDetail *cellDetail;
-
+@property (weak, nonatomic) IBOutlet UIView *timeView;
 + (YJChoicensCell *)choicensCell;
 + (NSString *)ID;
 @end

@@ -22,8 +22,6 @@
     [self addChildVC];
     //设置导航条
     [self setupNav];
-   
-   
     
 }
 
@@ -50,12 +48,15 @@
 - (void)changeShowView:(UISegmentedControl *)segment{
 
     if (segment.selectedSegmentIndex) {
+        
         //取出对应的子控制器
         UIViewController *vc = self.childViewControllers[segment.selectedSegmentIndex];
         vc.view.frame = self.view.bounds;
         vc.view.backgroundColor = [UIColor greenColor];
         [self.view addSubview:vc.view];
+        
     }else{
+        
         //取出对应的子控制器
         UIViewController *vc = self.childViewControllers[segment.selectedSegmentIndex];
         vc.view.frame = self.view.bounds;

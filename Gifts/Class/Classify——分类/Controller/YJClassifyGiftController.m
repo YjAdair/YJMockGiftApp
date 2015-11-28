@@ -23,6 +23,8 @@
 @property (weak, nonatomic) UIView *sliderView;
 /*<#name#>*/
 @property (strong, nonatomic) NSMutableArray *subViewsArr;
+/*<#name#>*/
+@property (strong, nonatomic) NSMutableArray *categorieInfoArr;
 @end
 @implementation YJClassifyGiftController
 
@@ -55,7 +57,9 @@
 - (void)getCategoriesInfo{
     
     [self.manager GET:@"http://api.liwushuo.com/v2/item_categories/tree?" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+
         NSMutableArray *categorieInfoArr = [NSMutableArray array];
+        self.categorieInfoArr = categorieInfoArr;
         NSArray *categorieArr = responseObject[@"data"][@"categories"];
         for (int i = 0; i< categorieArr.count; i++) {
             [categorieInfoArr addObject:[YJCategories mj_objectWithKeyValues:categorieArr[i]]];
@@ -84,7 +88,7 @@
         [button setTitleColor:[UIColor redColor] forState:(UIControlStateSelected)];
         button.tag = i + 1;
         buttonY = i * buttonH;
-        [button setBackgroundColor:[UIColor lightGrayColor]];
+        [button setBackgroundColor:[UIColor colorWithRed:245.0 / 255 green:245.0 / 255 blue:245.0 / 255 alpha:1.0]];
         
         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
         
@@ -107,7 +111,7 @@
 
 - (void)selectGategy:(UIButton *)button{
     
-    [self.selButton setBackgroundColor:[UIColor lightGrayColor]];
+    [self.selButton setBackgroundColor:[UIColor colorWithRed:245.0 / 255 green:245.0 / 255 blue:245.0 / 255 alpha:1.0]];
     [button setBackgroundColor:[UIColor whiteColor]];
     self.selButton = button;
     self.sliderView.yj_y = button.yj_y;
@@ -115,6 +119,7 @@
     YJSubcategoryView *subView = self.subViewsArr[button.tag - 1];
 
     [self.subCategoryScrollView setContentOffset:CGPointMake(0, subView.yj_y) animated:YES];
+    
 }
 #pragma mark - 设置分类详情
 - (void)setupSubcategoryView:(NSMutableArray *)categorieInfoArr{
@@ -145,8 +150,8 @@
             [subView addSubview:button];
 
         }
-//        YJSubCategoryBtn *lastBtn = subView.subviews.lastObject;
-            subView.frame = CGRectMake(0, i *([UIScreen mainScreen].bounds.size.height - 64-35-49), [UIScreen mainScreen].bounds.size.width - 35, [UIScreen mainScreen].bounds.size.height - 64 - 35 - 49);
+
+        subView.frame = CGRectMake(0, i *([UIScreen mainScreen].bounds.size.height - 64-35-49), [UIScreen mainScreen].bounds.size.width - 35, [UIScreen mainScreen].bounds.size.height - 64 - 35 - 49);
     }
     
     self.subCategoryScrollView.contentSize = CGSizeMake(0, categorieInfoArr.count *([UIScreen mainScreen].bounds.size.height - 64 - 35 - 49));

@@ -13,6 +13,7 @@
 + (instancetype)imageOriginImage:(NSString *)imageName{
     UIImage *image = [UIImage imageNamed:imageName];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    image = [UIImage OriginImage:image scaleToSize:CGSizeMake(25, 25)];
     return image;
 }
 

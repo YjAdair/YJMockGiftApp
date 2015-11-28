@@ -16,7 +16,7 @@
 #import "YJSliderDigitalViewController.h"
 #import "YJSliderGrowTableViewController.h"
 #import "YJSliderTitle.h"
-
+#import "YJTitleManageView.h"
 #define YJSliderTitleUrl @"http://api.liwushuo.com/v2/channels/preset?gender=1&generation=1"
 
 @interface YJGiftViewController ()<UIScrollViewDelegate>
@@ -41,8 +41,6 @@
 @property (weak, nonatomic) UIView *titleManageView;
 /*<#name#>*/
 @property (weak, nonatomic) UIView *titleView;
-/*<#name#>*/
-@property (weak, nonatomic) UIView *board;
 /*<#name#>*/
 @property (weak, nonatomic) UIButton *moreTitleButton;
 @end
@@ -84,6 +82,9 @@
     
     //设置界面标题
     [self.navigationItem setTitleView:[UILabel labelWithSize:20 TitleColor:[UIColor whiteColor] Title:@"礼物说"]];
+    
+    //设置navBar左边Item
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNorImage:[UIImage imageNamed:@"Explore_ScanButton"] Target:self Action:@selector(photo)];
     //设置navBar右边Item
     UIBarButtonItem *searchItem = [UIBarButtonItem itemWithNorImage:[UIImage imageNamed:@"Feed_SearchBtn"] Target:self Action:@selector(search)];
     UIBarButtonItem *moonNight = [UIBarButtonItem itemWithNorImage:[UIImage imageNamed:@"icon_navigation_nightmode"] Target:self Action:@selector(nightmode)];
@@ -123,6 +124,10 @@
     }];
                                                     
     
+}
+
+- (void)photo{
+    YJNslogFunc
 }
 - (void)search{
     YJNslogFunc
@@ -166,14 +171,14 @@
 #pragma mark 2.添加所有子控制器对应标题
 - (void)setUpTitleLabel:(NSArray *)sliderDataArrr{
     
-    //创建管理title按钮的View
+    //创建管理子title按钮的View
     [self setupSubTitleButtonManageView];
-
     
     UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.yj_width, 35)];
     self.titleView = titleView;
     titleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:titleView];
+    
     //创建标题所在ScrollView
     UIScrollView *titleSV = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.yj_width, 35)];
     self.titleSV = titleSV;
@@ -181,6 +186,7 @@
     titleSV.showsVerticalScrollIndicator = NO;
     titleSV.backgroundColor = [UIColor whiteColor];
     [titleView addSubview:titleSV];
+    
     //设置标题按钮
     //获取子控制器的个数
     NSInteger count = self.childViewControllers.count;
@@ -190,9 +196,9 @@
     CGFloat btnY = 0;
     CGFloat btnW = titleSV.yj_width / maxShow;
     CGFloat btnH = titleSV.yj_height;
-//    NSLog(@"%@",self.sliderTitleArr);
     //添加标题
     for (NSInteger i = 0; i < count; i++) {
+        
         YJSliderTitle *title = sliderDataArrr[i];
         //创建标题按钮
         UIButton *titleBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -210,42 +216,56 @@
         titleBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
         //添加标题按钮
         [titleSV addSubview:titleBtn];
+        
     }
+    
     CGRect temp = titleSV.frame;
     temp.size.width -= btnW;
     titleSV.frame = temp;
     titleSV.contentSize = CGSizeMake(sliderDataArrr.count * btnW, 0);
     
+    
     //获取第一个添加的按钮
     UIButton *firstBtn = [titleSV.subviews firstObject];
+    //设置标题滑块
     [self setupSliderView:firstBtn];
-    [self setupTitleManageViewTitleBtnW:btnW titleBtnH:btnH];
-    
+    //创建管理title按钮的View
+    [self setupTitleManageViewTitle];
+    //查看更多标题按钮
+    [self setupMoreTitleButton:firstBtn];
     //默认选中第一标题
     [self choiceViewController:firstBtn];
+    
 }
 
-#pragma mark -设置滑块
-- (void)setupSliderView:(UIButton *)firstButton{
-    //立即更新按钮的文字状态，以免设置滑块时，滑块有尺寸和位置却不显示的问题
-    [firstButton.titleLabel sizeToFit];
-    //创建滑块
-    UIView *sliderView = [[UIView alloc]init];
-    self.sliderView = sliderView;
-    //设置滑块的内容
-    sliderView.backgroundColor = [UIColor redColor];
-    //设置滑块的初始位置和尺寸
-    sliderView.yj_height = 2;
-    sliderView.yj_width = firstButton.titleLabel.yj_width;
-    sliderView.yj_y = firstButton.yj_height - sliderView.yj_height;
-    sliderView.yj_centerX = firstButton.yj_centerX;
-    //添加滑块
-    [self.titleSV addSubview:sliderView];
+#pragma mark - 标题最右边按钮__查看更多标题按钮
+- (void)setupMoreTitleButton:(UIButton *)firstBtn{
+    
+    //查看更多标题按钮
+    UIButton *moreTitleButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.moreTitleButton = moreTitleButton;
+    [moreTitleButton addTarget:self action:@selector(checkMoreTitle:) forControlEvents:(UIControlEventTouchUpInside)];
+    moreTitleButton.frame = CGRectMake(CGRectGetMaxX(self.titleSV.frame), 0, firstBtn.yj_width, firstBtn.yj_height);
+    
+    [moreTitleButton setImage:[UIImage OriginImage:[UIImage imageNamed:@"arrow_index_down"] scaleToSize:CGSizeMake(10, 6)] forState:(UIControlStateNormal)];
+    [self.titleView addSubview:moreTitleButton];
 }
 
-#pragma mark -创建子标题管理View
+#pragma mark - 创建管理title按钮的View
+- (void)setupTitleManageViewTitle{
+    
+    YJTitleManageView *titleManagerView = [YJTitleManageView titleManageiew];
+    self.titleManageView = titleManagerView;
+    titleManagerView.alpha = 0;
+    titleManagerView.frame = self.titleSV.frame;
+    
+    [self.titleView addSubview:titleManagerView];
+}
+
+#pragma mark - 创建子标题管理View
 - (void)setupSubTitleButtonManageView{
     
+    //子标题所在View
     UIView *subTitleButtonManageView = [[UIView alloc]init];
     self.subTitleButtonManageView = subTitleButtonManageView;
     CGFloat manageViewH = YJScreenH - CGRectGetMaxY(self.titleSV.frame) - 49;
@@ -253,11 +273,14 @@
     subTitleButtonManageView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:subTitleButtonManageView];
     
+    //子标题和管理器之间的分割线
     UIView *titleManagerSlider = [[UIView alloc]init];
     titleManagerSlider.frame = CGRectMake(0, 0, subTitleButtonManageView.yj_width, 1);
     titleManagerSlider.backgroundColor = [UIColor lightGrayColor];
     [subTitleButtonManageView addSubview:titleManagerSlider];
     
+    //添加title标题
+    //每行最大显示数目
     int maxShowCount = 4;
     CGFloat btnX = 0;
     CGFloat btnY = 0;
@@ -284,77 +307,46 @@
     
 }
 
+#pragma mark - 在子标题管理中点击了标题按钮
 - (void)selectedSubTitle:(UIButton *)subTitleBtn{
     
     [self checkMoreTitle:self.moreTitleButton];
     
     [self choiceViewController:self.titleSV.subviews[subTitleBtn.tag]];
 }
-#pragma mark -创建标题管理View
-- (void)setupTitleManageViewTitleBtnW:(CGFloat)titleBtnW titleBtnH:(CGFloat)titleBtnH{
-
-    //查看更多标题按钮所在的View
-    UIView *titleManageView = [[UIView alloc]init];
-    self.titleManageView = titleManageView;
-    titleManageView.frame = self.titleSV.bounds;
-    titleManageView.backgroundColor = [UIColor whiteColor];
-    titleManageView.alpha = 0;
-    [self.titleSV addSubview:titleManageView];
-    
-    //查看更多标题按钮
-    UIButton *moreTitleButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.moreTitleButton = moreTitleButton;
-    [moreTitleButton addTarget:self action:@selector(checkMoreTitle:) forControlEvents:(UIControlEventTouchUpInside)];
-    moreTitleButton.frame = CGRectMake(CGRectGetMaxX(self.titleSV.frame), 0, titleBtnW, titleBtnH);
-    
-    [moreTitleButton setImage:[UIImage OriginImage:[UIImage imageNamed:@"arrow_index_down"] scaleToSize:CGSizeMake(10, 6)] forState:(UIControlStateNormal)];
-    [self.titleView addSubview:moreTitleButton];
-
-    //moreTitleButton左边分割线
-    UIView *board = [[UIView alloc]init];
-    self.board = board;
-    board.frame = CGRectMake(CGRectGetMaxX(self.titleSV.frame) + 5, 0, 1, titleBtnH - 20);
-    board.yj_centerY = self.titleView.yj_centerY;
-    board.backgroundColor = [UIColor lightGrayColor];
-    board.alpha = 0.0;
-    [self.titleView addSubview:board];
-    
-    //切换频道按钮
-    UIButton *change = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    NSString *title = @"切换频道";
-    CGSize titleSize = [title sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
-    [change setTitle:title forState:(UIControlStateNormal)];
-    change.titleLabel.font = [UIFont systemFontOfSize:14];
-    [change setTitleColor:[UIColor lightGrayColor] forState:(UIControlStateNormal)];
-    change.frame = CGRectMake(20, 0, titleSize.width, titleSize.height);
-    change.yj_centerY = self.titleManageView.yj_centerY;
-    [self.titleManageView addSubview:change];
-    
-    //排序或删除按钮
-    UIButton *taxisOrDeleteBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    NSString *taxisOrDeleteTile = @"排序或删除";
-    CGSize taxisOrDeleteTileSize = [taxisOrDeleteTile sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]}];
-    [taxisOrDeleteBtn setTitle:taxisOrDeleteTile forState:(UIControlStateNormal)];
-    taxisOrDeleteBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [taxisOrDeleteBtn setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
-    taxisOrDeleteBtn.frame = CGRectMake(board.yj_x - 20 - taxisOrDeleteTileSize.width, 0, taxisOrDeleteTileSize.width, taxisOrDeleteTileSize.height);
-    taxisOrDeleteBtn.yj_centerY = self.titleManageView.yj_centerY;
-    [self.titleManageView addSubview:taxisOrDeleteBtn];
-}
 
 #pragma mark -查看更多的标题
 - (void)checkMoreTitle:(UIButton *)moreTitleButton{
-
-    [UIView animateWithDuration:0.25 animations:^{
+    
+    [UIView animateWithDuration:0.5 animations:^{
         
         moreTitleButton.transform = CGAffineTransformRotate(moreTitleButton.transform, M_PI);
-        self.board.alpha = self.subTitleButtonManageView.yj_y > 0? 0 : 1.0;
         self.titleManageView.alpha = self.subTitleButtonManageView.yj_y > 0? 0 : 1.0;
         self.tabBarController.tabBar.alpha = self.subTitleButtonManageView.yj_y > 0? 1.0 : 0;
         self.subTitleButtonManageView.yj_y = self.subTitleButtonManageView.yj_y > 0? -(YJScreenH - CGRectGetMaxY(self.titleSV.frame) - 49) : 35;
-    
+        
     }];
 }
+
+#pragma mark -设置滑块
+- (void)setupSliderView:(UIButton *)firstButton{
+    
+    //立即更新按钮的文字状态，以免设置滑块时，滑块有尺寸和位置却不显示的问题
+    [firstButton.titleLabel sizeToFit];
+    //创建滑块
+    UIView *sliderView = [[UIView alloc]init];
+    self.sliderView = sliderView;
+    //设置滑块的内容
+    sliderView.backgroundColor = [UIColor redColor];
+    //设置滑块的初始位置和尺寸
+    sliderView.yj_height = 2;
+    sliderView.yj_width = firstButton.titleLabel.yj_width;
+    sliderView.yj_y = firstButton.yj_height - sliderView.yj_height;
+    sliderView.yj_centerX = firstButton.yj_centerX;
+    //添加滑块
+    [self.titleSV addSubview:sliderView];
+}
+
 #pragma mark -选择子控制器时调用
 - (void)choiceViewController:(UIButton *)button{
     
